@@ -1,6 +1,6 @@
 # LastfmElixir
 
-**TODO: Add description**
+**LastFm API**
 
 ## Installation
 
@@ -10,7 +10,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def deps do
-      [{:lastfm_elixir, "~> 0.1.0"}]
+      [{:lastfm_elixir, "~> 0.0.1"}]
     end
     ```
 
