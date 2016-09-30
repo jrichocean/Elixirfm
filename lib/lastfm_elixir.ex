@@ -1,0 +1,2 @@
+defmodule LastfmElixir do
+end
