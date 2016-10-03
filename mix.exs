@@ -3,16 +3,20 @@ defmodule Elixirfm.Mixfile do
 
 
   def project do
-    [app: :elixirfm,
-     version: "0.0.1",
-     elixir: "~> 1.3",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     description: description,
-     deps: deps()]
+    [
+      app: :elixirfm,
+      version: "0.0.1",
+      elixir: "~> 1.3",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps(),
+      package: package(),
+      docs: [extras: ["README.md"]],
+      description: description
+    ]
   end
 
-  defp description do
+  def description do
     "Lastfm API client for Elixir"
   end
 

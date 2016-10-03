@@ -1,6 +1,8 @@
 defmodule Elixirfm.Artist do
   @moduledoc """
-  Wrapper for artist endpoints
+  Wrapper for Last.fm Artist endpoints.
+
+  _Currently only supports endpoints that do not require authentication._
 
   todo:
     artist.addTags
