@@ -1,4 +1,4 @@
-# LastfmElixir
+# Elixirfm
 
 **LastFm API**
 
@@ -6,19 +6,26 @@
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
-  1. Add `lastfm_elixir` to your list of dependencies in `mix.exs`:
+  1. Add `elixirfm` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:lastfm_elixir, "~> 0.0.1"}]
+      [{:elixirfm, "~> 0.0.1"}]
     end
     ```
 
-  2. Ensure `lastfm_elixir` is started before your application:
+  2. Ensure `elixirfm` is started in your application:
 
     ```elixir
     def application do
-      [applications: [:lastfm_elixir]]
+      [applications: [:elixirfm]]
     end
     ```
+
+  3. Configure API key for LastFm's API
+
+    ```elixir
+    config :elixirfm, api_key: "<your API key>"
+    ```
+
 
