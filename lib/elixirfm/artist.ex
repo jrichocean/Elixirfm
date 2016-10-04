@@ -74,7 +74,7 @@ defmodule Elixirfm.Artist do
   end
 
 
-    def process_url(url), do: @endpoint_base <> url <> "&api_key=#{@api_key}&format=json"
-    def process_response_body(body), do: body |> Poison.decode!
+  def process_url(url), do: @endpoint_base <> url <> "&api_key=#{@api_key}&format=json"
+  def process_response_body(body), do: body |> Poison.decode!
 
 end
