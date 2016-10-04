@@ -5,9 +5,9 @@ defmodule Elixirfm.Artist do
   _Currently only supports endpoints that do not require authentication._
 
   todo:
-    artist.addTags
-    artist.getTags
-    artist.removeTags
+    1. artist.addTags
+    2. artist.getTags
+    3. artist.removeTags
   """
   use HTTPoison.Base
 
@@ -74,7 +74,7 @@ defmodule Elixirfm.Artist do
   end
 
 
-  def process_url(url), do: @endpoint_base <> url <> "&api_key=#{@api_key}&format=json"
-  def process_response_body(body), do: body |> Poison.decode!
+    def process_url(url), do: @endpoint_base <> url <> "&api_key=#{@api_key}&format=json"
+    def process_response_body(body), do: body |> Poison.decode!
 
 end
