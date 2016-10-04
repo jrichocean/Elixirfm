@@ -2,10 +2,9 @@ defmodule Elixirfm.Chart do
   @moduledoc """
   Wrapper for Last.fm Chart endpoints.
   """
-  use HTTPoision.Base
+  use HTTPoison.Base
 
   @endpoint_base "http://ws.audioscrobbler.com/"
-  @api_key Application.fetch_env!(:elixirfm, :api_key)
 
 
   @doc """
@@ -26,9 +25,10 @@ defmodule Elixirfm.Chart do
   Get the top tracks chart
   """
   def get_top_tracks(args \\ [api_version: "2.0", page: 1, limit: 30]) do
-    get!(args[:api_version] "/?method=chart.gettoptracks&page=#{args[:page]}&limit=#{args[:limit]}")
+    get!(args[:api_version] <> "/?method=chart.gettoptracks&page=#{args[:page]}&limit=#{args[:limit]}")
   end
 
-  def process_url(url), do: @endpoint_base <> url <> "&api_key=#{@api_key}&format=json"
+
+  def process_url(url), do: @endpoint_base <> url <> "&api_key=" <> Elixirfm.lastfm_key <> "&format=json"
   def process_response_body(body), do: body |> Poison.decode!
 end

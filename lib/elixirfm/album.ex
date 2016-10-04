@@ -11,7 +11,6 @@ defmodule Elixirfm.Album do
   use HTTPoison.Base
 
   @endpoint_base "http://ws.audioscrobbler.com/"
-  @api_key Application.fetch_env!(:elixirfm, :api_key)
 
 
   @doc """
@@ -43,6 +42,6 @@ defmodule Elixirfm.Album do
     get!(args[:api_version] <> "/?method=album.gettoptags&artist=#{artist}&album=#{album}")
   end
 
-  def process_url(url), do: @endpoint_base <> url <> "&api_key=#{@api_key}&format=json"
+  def process_url(url), do: @endpoint_base <> url <> "&api_key=" <> Elixirfm.lastfm_key <> "&format=json"
   def process_response_body(body), do: body |> Poison.decode!
 end

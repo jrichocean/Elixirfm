@@ -13,7 +13,6 @@ defmodule Elixirfm.Artist do
 
 
   @endpoint_base "http://ws.audioscrobbler.com/2.0/"
-  @api_key Application.fetch_env!(:elixirfm, :api_key)
   
 
   @doc """
@@ -74,7 +73,7 @@ defmodule Elixirfm.Artist do
   end
 
 
-  def process_url(url), do: @endpoint_base <> url <> "&api_key=#{@api_key}&format=json"
+  def process_url(url), do: @endpoint_base <> url <> "&api_key=" <> Elixirfm.lastfm_key <> "&format=json"
   def process_response_body(body), do: body |> Poison.decode!
 
 end
