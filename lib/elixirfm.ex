@@ -4,6 +4,11 @@ defmodule Elixirfm do
 
   Currently in begining stages of development.  
   """
+  use HTTPoison.Base
+
+  @endpoint_base "http://ws.audioscrobbler.com/2.0/"
+  @api_key Application.fetch_env!(:elixirfm, :api_key)
+
 
   defmodule MissingSecretKeyError do
     defexception message: """
@@ -23,5 +28,11 @@ defmodule Elixirfm do
     || raise MissingSecretKeyError
   end
 
+  def get_request(url) do
+    get!(url)
+  end
+
+  def process_url(url), do: @endpoint_base <> url <> "&api_key=" <> lastfm_key() <> "&format=json"
+  def process_response_body(body), do: body |> Poison.decode!
 
 end
