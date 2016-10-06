@@ -4,28 +4,30 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+Last.fm API wrapper for Elixir. [(Documentation)](https://hexdocs.pm/elixirfm/0.0.2)
 
-  1. Add `elixirfm` to your list of dependencies in `mix.exs`:
+_Currently only supports non-authenticated endpoints._
 
-    ```elixir
-    def deps do
-      [{:elixirfm, "~> 0.0.1"}]
-    end
-    ```
+The package can be installed by:
 
-  2. Ensure `elixirfm` is started in your application:
+1. Add `elixirfm` to your list of dependencies in `mix.exs`:
 
-    ```elixir
-    def application do
-      [applications: [:elixirfm]]
-    end
-    ```
+  ```elixir
+  def deps do
+    [{:elixirfm, "~> 0.0.1"}]
+  end
+  ```
 
-  3. Configure API key for LastFm's API
+2. Ensure `elixirfm` is started in your application:
 
-    ```elixir
-    config :elixirfm, api_key: "<your API key>"
-    ```
+  ```elixir
+  def application do
+    [applications: [:elixirfm]]
+  end
+  ```
 
+3. Configure API key for LastFm's API
 
+  ```elixir
+  config :elixirfm, api_key: "<your API key>"
+  ```
