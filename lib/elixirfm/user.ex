@@ -3,6 +3,31 @@ defmodule Elixirfm.User do
   Last.fm User Enpoints
   """
 
+
+  @doc """
+  Get a user's profile infomation.
+  """
+  def get_info(user) do
+    Elixirfm.get_request("?method=user.getinfo&user=#{user}")
+  end
+
+  @doc """
+  Get a list of the user's friends on Last.fm.
+  """
+  def get_friends(query, args \\ [limit: 15, page: 1, recenttracks: false]) do
+    Elixirfm.get_request("?method=user.getfriends&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&recenttracks=#{args[:recenttracks]}")
+  end
+
+  @doc """
+  Get a list of tracks by a given artist scrobbled by this user, including scrobble time.
+  Can be limited to specific timeranges, defaults to all time.
+
+  _start and end times not implemented yet_
+  """
+  def get_artist_tracks(user, artist, args \\ [page: 1]) do
+    Elixirfm.get_request("/2.0/?method=user.getartisttracks&user=#{user}&artist=#{artist}&page=#{args[:page]}")
+  end
+
   @doc """
   Get the top albums listened to by a user. You can stipulate a time period. Sends the overall chart by default.
 
@@ -11,7 +36,6 @@ defmodule Elixirfm.User do
   def get_top_albums(query, args \\ [peroid: "overall", page: 1, limit: 15]) do
     Elixirfm.get_request("?method=user.gettopalbums&user=#{query}&peroid=#{args[:peroid]}&page=#{args[:page]}&limit=#{args[:limit]}")
   end
-
 
   @doc """
   Get the top artists listened to by a user. You can stipulate a time period. Sends the overall chart by default.
@@ -65,4 +89,23 @@ defmodule Elixirfm.User do
   #   Elixirfm.get_request("?method=user.getweeklytrackchart&user=#{query}&from=#{args[:from]}&to=#{args[:to]}")
   # end
 
+
+  @doc """
+  Get the last 50 tracks loved by a user.
+  """
+  def get_loved_tracks(query, args \\ [page: 1, limit: 50]) do
+    Elixirfm.get_request("?method=user.getlovedtracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}")
+  end
+
+  @doc """
+  Get a list of the recent tracks listened to by this user.
+  Also includes the currently playing track with the nowplaying="true" attribute if the user is currently listening.
+
+  ```extended_info``` argument accepts 1 or 0 as true or false
+
+  _to and from arguments not implemented yet_
+  """
+  def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended_info: 0]) do
+    Elixirfm.get_request("?method=user.getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended#{args[:extended_info]}")
+  end
 end
