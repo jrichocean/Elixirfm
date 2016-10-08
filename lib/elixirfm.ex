@@ -28,11 +28,11 @@ defmodule Elixirfm do
     || raise MissingSecretKeyError
   end
 
-  def get_request(url) do
+  def get_request(url, endpoint) do
     get!(url)
   end
 
-  def process_url(url), do: @endpoint_base <> url <> "&api_key=" <> lastfm_key() <> "&format=json"
+  def process_url(url), do: @endpoint_base <> "?method=" <> url <> "&api_key=" <> lastfm_key() <> "&format=json"
   def process_response_body(body), do: body |> Poison.decode!
 
 end
