@@ -1,12 +1,11 @@
 # Elixirfm
+---
 
-**LastFm API**
+Last.fm API wrapper for Elixir. [(Documentation)](https://hexdocs.pm/elixirfm/0.0.5)
 
-## Installation
+_Currently supports non-authenticated endpoints._
 
-Last.fm API wrapper for Elixir. [(Documentation)](https://hexdocs.pm/elixirfm/0.0.4)
-
-_Currently only supports non-authenticated endpoints._
+### Installation
 
 The package can be installed by:
 
@@ -14,7 +13,7 @@ The package can be installed by:
 
   ```elixir
   def deps do
-    [{:elixirfm, "~> 0.0.4"}]
+    [{:elixirfm, "~> 0.0.5"}]
   end
   ```
 
