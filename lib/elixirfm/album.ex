@@ -18,14 +18,14 @@ defmodule Elixirfm.Album do
   Search for an album by name. Returns album matches sorted by relevance.
   """
   def search(query, args \\ [limit: 5, page: 1]) do
-    Elixirfm.get_request("#{endpoint}.search&album=#{query}")
+    Elixirfm.get_request("#{endpoint}.search&album=#{query}&page=#{args[:page]}&limit=#{args[:limit]}")
   end
 
   @doc """
   Get Album info.
   """
   def get_info(artist, album, args \\ [username: "", lang: "eng"]) do
-    Elixirfm.get_request("#{endpoint}.getinfo&artist=#{artist}&album=#{album}&username=" <> args[:username] <> "&lang=" <> args[:lang])
+    Elixirfm.get_request("#{endpoint}.getinfo&artist=#{artist}&album=#{album}&username=#{args[:username]}&lang=#{args[:lang]}")
   end
 
   # @doc """

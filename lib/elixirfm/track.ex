@@ -47,7 +47,7 @@ defmodule Elixirfm.Track do
   Get the top tags for this track on Last.fm, ordered by tag count.
   """
   def get_top_tags(artist, track) do
-    Elixirfm.get_request("#{endpoint}.gettoptags&artist=artist&track=#{track}")
+    Elixirfm.get_request("#{endpoint}.gettoptags&artist=#{artist}&track=#{track}")
   end
 
 end
