@@ -29,5 +29,9 @@ The package can be installed by:
 3. Configure API key for LastFm's API
 
   ```elixir
-  config :elixirfm, api_key: "<your API key>"
+  config :elixirfm,
+
+     api_key: "<your API key>"
+
+     secret_key: "<your SECRET key>"
   ```
