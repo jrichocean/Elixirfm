@@ -3,6 +3,7 @@ defmodule Elixirfm.Geo do
   Last.fm Geo endpoint api
   """
 
+  @doc false
   def endpoint do
     "geo"
   end

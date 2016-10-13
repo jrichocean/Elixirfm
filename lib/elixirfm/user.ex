@@ -3,6 +3,7 @@ defmodule Elixirfm.User do
   Last.fm User Enpoints
   """
 
+  @doc false
   def endpoint do
     "user"
   end

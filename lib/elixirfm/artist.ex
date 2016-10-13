@@ -9,7 +9,8 @@ defmodule Elixirfm.Artist do
     artist.getTags
     artist.removeTags
   """
-  
+
+  @doc false  
   def endpoint do
     "artist"
   end

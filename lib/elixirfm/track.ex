@@ -3,6 +3,7 @@ defmodule Elixirfm.Track do
   Wrapper for Last.fm Track endpoints
   """
 
+  @doc false
   def endpoint do
     "track"
   end

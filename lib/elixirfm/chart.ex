@@ -3,6 +3,7 @@ defmodule Elixirfm.Chart do
   Wrapper for Last.fm Chart endpoints.
   """
 
+  @doc false
   def endpoint do
     "chart"
   end

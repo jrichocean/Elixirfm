@@ -3,6 +3,7 @@ defmodule Elixirfm.Tags do
   Wrapper for Last.fm Tags endpoints
   """
 
+  @doc false
   def endpoint do
     "tag"
   end

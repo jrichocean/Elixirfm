@@ -1,5 +1,4 @@
 # Elixirfm
----
 
 Last.fm API wrapper for Elixir. [(Documentation)](https://hexdocs.pm/elixirfm/0.0.5)
 
@@ -29,8 +28,6 @@ The package can be installed by:
 
   ```elixir
   config :elixirfm,
-
      api_key: "<your API key>"
-
      secret_key: "<your SECRET key>"
   ```

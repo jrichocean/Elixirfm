@@ -9,7 +9,7 @@ defmodule Elixirfm.Album do
     2. album.removeTag
   """
 
-
+  @doc false
   def endpoint do
     "album"    
   end
