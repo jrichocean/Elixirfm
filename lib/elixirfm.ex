@@ -6,6 +6,8 @@ defmodule Elixirfm do
   """
   use HTTPoison.Base
 
+  alias Elixirfm.InvalidRequestError
+
   @api_root "http://ws.audioscrobbler.com/"
   @api_key Application.fetch_env!(:elixirfm, :api_key)
 
@@ -50,9 +52,9 @@ defmodule Elixirfm do
     {:ok, process_response_body(body)}
   end
 
-  # defp handle_response() do  
+  defp handle_response({:ok, %{body: body, status_code: code}}) do  
   # Handle status codes other then 200 with this.
-  # end
+  end
 
   defp process_response_body(body), do: body |> Poison.decode!
 
