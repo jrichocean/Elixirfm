@@ -28,4 +28,9 @@ defmodule Elixirfm.Auth do
   # def get_session(api_key, api_token, api_sig) do
     
   # end
+
+  defp create_api_sig() do
+    # :erlang.md5()
+    # @api_key <> "methodauth.getSessiontoken" <> callback_token <> @api_secret
+  end
 end

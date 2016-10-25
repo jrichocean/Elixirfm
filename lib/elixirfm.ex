@@ -1,33 +1,28 @@
 defmodule Elixirfm do
   @moduledoc """
   Provides a wrapper for the Lastfm API.
-
-  _Currently in early stages of development._
   """
-  use HTTPoison.Base
 
-  alias Elixirfm.InvalidRequestError
+  use HTTPoison.Base
+  alias Elixirfm.{
+          InvalidRequestError,
+          MissingApiKeyError,
+          MissingSecretKeyError
+        }
 
   @api_root "http://ws.audioscrobbler.com/"
-  @api_key Application.fetch_env!(:elixirfm, :api_key)
 
 
-  defmodule MissingApiKeyError do
-    defexception message: """
-      The secret_key settings is required for some of the Lastfm endpoints. Please include your
-      Last.fm api key in your application config file like so:
-
-        config :elixirfm, api_key: _YOUR_API_KEY_
-
-      You can also set the secret key as an environment variable:
-
-        LASTFM_API_KEY= _YOUR_API_KEY_
-    """
-  end
-
+  @doc false
   def lastfm_key do
     Application.get_env(:elixirfm, :api_key, System.get_env("LASTFM_API_KEY"))
     || raise MissingApiKeyError
+  end
+
+  @doc false
+  def lastfm_secret do
+    Application.get_env(:elixirfm, :secret_key, System.get_env("LASTFM_SECRET_KEY"))
+    || raise MissingSecretKeyError
   end
 
   defp request_url(endpoint, opts \\ [api_version: "2.0"]) do
@@ -44,8 +39,7 @@ defmodule Elixirfm do
 
   def get_request(endpoint) do
     url = request_url(endpoint)
-    HTTPoison.get(url, create_headers())
-    |> handle_response
+    HTTPoison.get(url, create_headers()) |> handle_response
   end
 
   defp handle_response({:ok, %{body: body, status_code: 200}}) do
