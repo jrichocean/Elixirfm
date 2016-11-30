@@ -24,7 +24,7 @@ defmodule Elixirfm.Mixfile do
     [
       name: :elixirfm,
       maintainers: ["Joshua Richardson"],
-      licenses: ["Apache 2.0"],
+      licenses: ["MIT"],
       docs: [extras: ["README.md"]],
       links: %{"GitHub" => "https://github.com/jrichocean/Elixirfm"}
     ]
