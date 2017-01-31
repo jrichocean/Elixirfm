@@ -12,7 +12,6 @@ defmodule Elixirfm do
 
   @api_root "http://ws.audioscrobbler.com/"
 
-
   @doc false
   def lastfm_key do
     Application.get_env(:elixirfm, :api_key, System.get_env("LASTFM_API_KEY"))
@@ -46,7 +45,7 @@ defmodule Elixirfm do
     {:ok, process_response_body(body)}
   end
 
-  defp handle_response({:ok, %{body: body, status_code: code}}) do  
+  defp handle_response({:ok, %{body: body, status_code: code}}) do
   # Handle status codes other then 200 with this.
   end
 

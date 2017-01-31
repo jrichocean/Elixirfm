@@ -6,13 +6,13 @@ defmodule Elixirfm.Mixfile do
     [
       app: :elixirfm,
       version: "0.0.6",
-      elixir: "~> 1.3",
+      elixir: "~> 1.4",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       deps: deps(),
       package: package(),
       docs: [extras: ["README.md"]],
-      description: description
+      description: description()
     ]
   end
 
@@ -43,13 +43,13 @@ defmodule Elixirfm.Mixfile do
   # Dependencies
   defp deps do
     [
-      {:credo, "~> 0.4", only: [:dev, :test]},
-      {:httpoison, "~> 0.9.0"},
-      {:poison, "~> 2.0"},
+      {:credo, "~> 0.6", only: [:dev, :test]},
+      {:httpoison, "~> 0.10.0"},
+      {:poison, "~> 3.0"},
 
       # Documentation
-      {:earmark, ">= 0.0.0", only: :dev},
-      {:ex_doc, ">= 0.0.0", only: :dev},
+      {:earmark, "~> 1.1", only: :dev},
+      {:ex_doc, "~> 0.14.5", only: :dev},
       {:inch_ex, "~> 0.5", only: [:dev, :test]}
     ]
   end
