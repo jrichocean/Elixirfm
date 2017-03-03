@@ -5,7 +5,7 @@ defmodule Elixirfm.Mixfile do
   def project do
     [
       app: :elixirfm,
-      version: "0.0.7",
+      version: "0.0.8",
       elixir: "~> 1.4",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -44,7 +44,7 @@ defmodule Elixirfm.Mixfile do
   defp deps do
     [
       {:credo, "~> 0.6", only: [:dev, :test]},
-      {:httpoison, "~> 0.10.0"},
+      {:httpoison, "~> 0.11.1"},
       {:poison, "~> 3.0"},
 
       # Documentation
