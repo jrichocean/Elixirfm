@@ -44,11 +44,12 @@ defmodule Elixirfm.Mixfile do
   defp deps do
     [
       {:credo, "~> 0.6", only: [:dev, :test]},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:httpoison, "~> 0.11.1"},
       {:poison, "~> 3.0"},
 
       # Documentation
-      {:earmark, "~> 1.1", only: :dev},
+      {:earmark, "~> 1.2", only: :dev},
       {:ex_doc, "~> 0.14.5", only: :dev},
       {:inch_ex, "~> 0.5", only: [:dev, :test]}
     ]
