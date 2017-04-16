@@ -1,9 +1,8 @@
 defmodule Elixirfm do
   @moduledoc """
-  Provides a wrapper for the Lastfm API.
+  A simple wrapper for the Lastfm API.
   """
 
-  use HTTPoison.Base
   alias Elixirfm.{
           InvalidRequestError,
           MissingApiKeyError,
@@ -24,31 +23,28 @@ defmodule Elixirfm do
     || raise MissingSecretKeyError
   end
 
+  @spec get_request(String.t()) :: {atom(), term()}
+  def get_request(endpoint) do
+    HTTPoison.request(:get, request_url(endpoint), [], create_headers())
+    |> handle_response()
+  end
+
   defp request_url(endpoint, opts \\ [api_version: "2.0"]) do
-    Path.join(@api_root, "#{opts[:api_version]}/?method=#{endpoint}&api_key=#{lastfm_key()}&format=json")
+    @api_root <> "#{opts[:api_version]}/?method=" <> endpoint <> "&api_key=" <> lastfm_key() <> "&format=json"
   end
 
   defp create_headers do
     app_version = Mix.Project.config[:version]
-    bearer_token = lastfm_key()
-
-    [{"Authorization", "Bearer #{bearer_token}"},
-     {"User-Agent", "Elixirfm/v1 elixirfm/#{app_version}"},]
+    [{"Authorization", "Bearer #{lastfm_key()}"},
+     {"User-Agent", "Elixirfm/v1 elixirfm/#{app_version}"}]
   end
 
-  def get_request(endpoint) do
-    url = request_url(endpoint)
-    HTTPoison.get(url, create_headers()) |> handle_response
+  defp handle_response({:error, struct}), do: {:error, "There was an error", struct}
+  defp handle_response({:ok, %{body: body, status_code: 200}}), do: {:ok, process_response_body(body)}
+  defp handle_response({:ok, struct=%{body: body, status_code: code}}) do
+    {:error, struct}
   end
 
-  defp handle_response({:ok, %{body: body, status_code: 200}}) do
-    {:ok, process_response_body(body)}
-  end
-
-  defp handle_response({:ok, %{body: body, status_code: code}}) do
-  # Handle status codes other then 200 with this.
-  end
-
-  defp process_response_body(body), do: body |> Poison.decode!
+  defp process_response_body(body), do: body |> Poison.decode!()
 
 end
