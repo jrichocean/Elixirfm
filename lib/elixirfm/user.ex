@@ -4,9 +4,7 @@ defmodule Elixirfm.User do
   """
 
   @doc false
-  def endpoint do
-    "user"
-  end
+  def endpoint(), do: "user"
 
 
   @doc """

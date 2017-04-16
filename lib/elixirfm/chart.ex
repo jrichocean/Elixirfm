@@ -4,9 +4,7 @@ defmodule Elixirfm.Chart do
   """
 
   @doc false
-  def endpoint do
-    "chart"
-  end
+  def endpoint(), do: "chart"
 
   @doc """
   Get the top artists chart

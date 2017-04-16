@@ -4,9 +4,7 @@ defmodule Elixirfm.Track do
   """
 
   @doc false
-  def endpoint do
-    "track"
-  end
+  def endpoint(), do: "track"
 
   # @doc """
   # Tag an album using a list of user supplied tags.

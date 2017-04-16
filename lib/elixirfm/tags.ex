@@ -4,9 +4,7 @@ defmodule Elixirfm.Tags do
   """
 
   @doc false
-  def endpoint do
-    "tag"
-  end
+  def endpoint(), do: "tag"
 
   @doc """
   Get the metadata for a tag

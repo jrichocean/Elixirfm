@@ -4,10 +4,7 @@ defmodule Elixirfm.Geo do
   """
 
   @doc false
-  def endpoint do
-    "geo"
-  end
-
+  def endpoint(), do: "geo"
   @doc """
   Get the most popular artists on Last.fm by country.
 

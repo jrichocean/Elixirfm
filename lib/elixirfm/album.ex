@@ -10,9 +10,7 @@ defmodule Elixirfm.Album do
   """
 
   @doc false
-  def endpoint() do
-    "album"
-  end
+  def endpoint(), do: "album"
 
   @doc """
   Search for an album by name. Returns album matches sorted by relevance.
@@ -42,8 +40,8 @@ defmodule Elixirfm.Album do
   Get the top tags for an album on Last.fm, ordered by popularity.
   """
   @spec get_top_tags(String.t(), String.t(), list()) :: {atom(), term()}
-  def get_top_tags(artist, album, args \\ []) do
-    Elixirfm.get_request("#{endpoint()}.gettoptags&artist=#{artist}&album=#{album}")
+  def get_top_tags(artist, album, args \\ [autocorrect: 0]) do
+    Elixirfm.get_request("#{endpoint()}.gettoptags&artist=#{artist}&album=#{album}&autocorrect=#{args[:autocorrect]}")
   end
 
 end
