@@ -41,7 +41,7 @@ defmodule Elixirfm do
 
   defp handle_response({:error, struct}), do: {:error, "There was an error", struct}
   defp handle_response({:ok, %{body: body, status_code: 200}}), do: {:ok, process_response_body(body)}
-  defp handle_response({:ok, struct=%{body: body, status_code: code}}) do
+  defp handle_response({:ok, %{body: body, status_code: code}}) do
     %{"error" => error, "message" => message} = Poison.decode!(body)
 
     error_struct = %RequestError{type: code, error: error, message: message}

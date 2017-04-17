@@ -16,7 +16,7 @@ defmodule Elixirfm.Tags do
   @doc """
   Search for similar tags. Returns tags ranked by similarity, based on listening data.
   """
-  def get_similar(query, args \\ []) do
+  def get_similar(query) do
     Elixirfm.get_request("#{endpoint()}.getsimilar&tag=#{query}")
   end
 
@@ -37,7 +37,7 @@ defmodule Elixirfm.Tags do
   @doc """
   Fetches the top global tags on Last.fm, sorted by popularity (number of times used)
   """
-  def top_tags(args \\ []) do
+  def top_tags() do
     Elixirfm.get_request("#{endpoint()}.getTopTags")
   end
 
@@ -51,7 +51,7 @@ defmodule Elixirfm.Tags do
   @doc """
   Get a list of available charts for this tag, expressed as date ranges which can be sent to the chart services.
   """
-  def get_weekly_chart(query, args \\ []) do
+  def get_weekly_chart(query) do
     Elixirfm.get_request("#{endpoint()}.getweeklychartlist&tag=#{query}")
   end
 
