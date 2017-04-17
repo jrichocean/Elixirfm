@@ -11,7 +11,7 @@ defmodule Elixirfm.Artist do
   """
 
   @doc false
-  def endpoint(), do: "artist"
+  def endpoint(), do: "artis"
 
   @doc """
   Search an artist
