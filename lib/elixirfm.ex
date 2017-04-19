@@ -24,13 +24,13 @@ defmodule Elixirfm do
   end
 
   @spec get_request(String.t()) :: {atom(), term()}
-  def get_request(endpoint) do
-    HTTPoison.request(:get, request_url(endpoint), [], create_headers())
+  def get_request(endpoint, opts \\ [api_version: "2.0"]) do
+    HTTPoison.request(:get, request_url(endpoint, opts), [], create_headers())
     |> handle_response()
   end
 
-  defp request_url(endpoint, opts \\ [api_version: "2.0"]) do
-    @api_root <> "#{opts[:api_version]}/?method=" <> endpoint <> "&api_key=" <> lastfm_key() <> "&format=json"
+  defp request_url(endpoint, opts) do
+    @api_root <> "#{opts}/?method=" <> endpoint <> "&api_key=" <> lastfm_key() <> "&format=json"
   end
 
   defp create_headers do
@@ -39,13 +39,12 @@ defmodule Elixirfm do
      {"User-Agent", "Elixirfm/v1 elixirfm/#{app_version}"}]
   end
 
+  @spec handle_response({atom(), map()}) :: tuple()
   defp handle_response({:error, struct}), do: {:error, "There was an error", struct}
   defp handle_response({:ok, %{body: body, status_code: 200}}), do: {:ok, process_response_body(body)}
-  defp handle_response({:ok, %{body: body, status_code: code}}) do
+  defp handle_response({:ok, %{body: body, headers: headers, status_code: code}}) do
     %{"error" => error, "message" => message} = Poison.decode!(body)
-
-    error_struct = %RequestError{type: code, error: error, message: message}
-
+    error_struct = %RequestError{type: code, error: error, message: message, headers: headers}
     {:error, error_struct}
   end
 

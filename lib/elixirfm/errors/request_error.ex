@@ -31,5 +31,5 @@ defmodule Elixirfm.RequestError do
   **27** : _Deprecated_ - This type of request is no longer supported
   **29** : _Rate Limit Exceded_ - Your IP has made too many requests in a short period, exceeding our API guidelines
   """
-  defstruct type: nil, error: nil, message: nil
+  defstruct type: nil, error: nil, message: nil, headers: nil
 end
