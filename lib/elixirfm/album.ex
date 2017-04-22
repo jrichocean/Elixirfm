@@ -8,6 +8,7 @@ defmodule Elixirfm.Album do
     1. album.getTags
     2. album.removeTag
   """
+  @type response :: {atom(), struct()}
 
   @doc false
   def endpoint(), do: "album"
@@ -15,7 +16,7 @@ defmodule Elixirfm.Album do
   @doc """
   Search for an album by name. Returns album matches sorted by relevance.
   """
-  @spec search(String.t(), list()) :: {atom(), term()}
+  @spec search(String.t(), list()) :: response
   def search(query, args \\ [limit: 5, page: 1]) do
     Elixirfm.get_request("#{endpoint()}.search&album=#{query}&page=#{args[:page]}&limit=#{args[:limit]}")
   end
@@ -23,7 +24,7 @@ defmodule Elixirfm.Album do
   @doc """
   Get Album info.
   """
-  @spec get_info(String.t(), String.t(), list()) :: {atom(), term()}
+  @spec get_info(String.t(), String.t(), list()) :: response
   def get_info(artist, album, args \\ [username: "", lang: "eng"]) do
     Elixirfm.get_request("#{endpoint()}.getinfo&artist=#{artist}&album=#{album}&username=#{args[:username]}&lang=#{args[:lang]}")
   end
@@ -39,7 +40,7 @@ defmodule Elixirfm.Album do
   @doc """
   Get the top tags for an album on Last.fm, ordered by popularity.
   """
-  @spec get_top_tags(String.t(), String.t(), list()) :: {atom(), term()}
+  @spec get_top_tags(String.t(), String.t(), list()) :: response
   def get_top_tags(artist, album, args \\ [autocorrect: 0]) do
     Elixirfm.get_request("#{endpoint()}.gettoptags&artist=#{artist}&album=#{album}&autocorrect=#{args[:autocorrect]}")
   end
