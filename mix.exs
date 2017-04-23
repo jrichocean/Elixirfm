@@ -5,7 +5,7 @@ defmodule Elixirfm.Mixfile do
   def project do
     [
       app: :elixirfm,
-      version: "0.0.9",
+      version: "0.0.10",
       elixir: "~> 1.4",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
