@@ -49,8 +49,7 @@ defmodule Elixirfm.Mixfile do
       {:poison, "~> 3.0"},
 
       # Documentation
-      {:earmark, "~> 1.2", only: :dev},
-      {:ex_doc, "~> 0.14.5", only: :dev},
+      {:ex_doc, "~> 0.15.1", only: :dev},
       {:inch_ex, "~> 0.5", only: [:dev, :test]}
     ]
   end
