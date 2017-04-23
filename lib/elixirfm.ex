@@ -3,6 +3,8 @@ defmodule Elixirfm do
   A simple wrapper for the Lastfm API.
   """
 
+  @type response :: {atom(), struct()}
+
   alias Elixirfm.{
           RequestError,
           MissingApiKeyError,
@@ -28,7 +30,7 @@ defmodule Elixirfm do
     HTTPoison.request(:get, request_url(endpoint, opts), [], create_headers())
     |> handle_response()
   end
-
+g
   defp request_url(endpoint, opts) do
     @api_root <> "#{opts}/?method=" <> endpoint <> "&api_key=" <> lastfm_key() <> "&format=json"
   end

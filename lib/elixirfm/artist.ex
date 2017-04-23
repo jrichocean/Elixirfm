@@ -10,15 +10,13 @@ defmodule Elixirfm.Artist do
     artist.removeTags
   """
 
-  @type response :: {atom(), struct()}
-
   @doc false
   def endpoint(), do: "artist"
 
   @doc """
   Search an artist
   """
-  @spec search(String.t(), [page: integer(), limit: integer()]) :: response
+  @spec search(String.t(), [page: integer(), limit: integer()]) :: Elixirfm.response
   def search(query, args \\ [page: 1, limit: 30]) do
     Elixirfm.get_request("#{endpoint()}.search&artist=#{query}&page=#{args[:page]}&limit=#{args[:limit]}")
   end
@@ -26,7 +24,7 @@ defmodule Elixirfm.Artist do
   @doc """
   Get artist info
   """
-  @spec get_info(String.t(), [lang: String.t(), username: String.t()]) :: response
+  @spec get_info(String.t(), [lang: String.t(), username: String.t()]) :: Elixirfm.response
   def get_info(query, args \\ [lang: "eng", username: ""]) do
     Elixirfm.get_request("#{endpoint()}.getinfo&artist=#{query}&lang=#{args[:lang]}&username=#{args[:username]}")
   end
@@ -34,7 +32,7 @@ defmodule Elixirfm.Artist do
   @doc """
   Retrive list of Similar Artists
   """
-  @spec get_similar(String.t(), [limit: integer()]) :: response
+  @spec get_similar(String.t(), [limit: integer()]) :: Elixirfm.response
   def get_similar(query, args \\ [limit: 10]) do
     Elixirfm.get_request("#{endpoint()}.getsimilar&artist=#{query}&limit=#{args[:limit]}")
   end
@@ -50,7 +48,7 @@ defmodule Elixirfm.Artist do
   @doc """
   Get Top albums for an artist, ordered by popularity
   """
-  @spec get_top_album(String.t(), [page: integer(), limit: integer()]) :: response
+  @spec get_top_album(String.t(), [page: integer(), limit: integer()]) :: Elixirfm.response
   def get_top_album(query, args \\ [page: 1, limit: 30]) do
     Elixirfm.get_request("#{endpoint()}.gettopalbums&artist=#{query}&page=#{args[:page]}&limit=#{args[:limit]}")
   end
@@ -58,7 +56,7 @@ defmodule Elixirfm.Artist do
   @doc """
   Gets top tags for an artist on Lastfm, ordered by popularity
   """
-  @spec get_top_tags(String.t()) :: response
+  @spec get_top_tags(String.t()) :: Elixirfm.response
   def get_top_tags(query) do
     Elixirfm.get_request("#{endpoint()}.gettoptags&artist=#{query}")
   end
@@ -66,7 +64,7 @@ defmodule Elixirfm.Artist do
   @doc """
   Gets top tracks for an artist, ordered by popularity. (defaults to first 15)
   """
-  @spec get_top_tracks(String.t(), [page: integer(), limit: integer()]) :: response
+  @spec get_top_tracks(String.t(), [page: integer(), limit: integer()]) :: Elixirfm.response
   def get_top_tracks(query, args \\ [page: 1, limit: 15]) do
     Elixirfm.get_request("#{endpoint()}.gettoptracks&artist=#{query}&page=#{args[:page]}&limit=#{args[:limit]}")
   end
@@ -74,7 +72,7 @@ defmodule Elixirfm.Artist do
   @doc """
   Use the last.fm corrections data to check whether the supplied artist has a correction to a canonical artist
   """
-  @spec get_correction(String.t()) :: response
+  @spec get_correction(String.t()) :: Elixirfm.response
   def get_correction(query) do
     Elixirfm.get_request("#{endpoint()}.getcorrection&artist=#{query}")
   end
