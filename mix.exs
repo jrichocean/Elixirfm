@@ -47,7 +47,7 @@ defmodule Elixirfm.Mixfile do
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:exvcr, "~> 0.8", only: :test},
       {:httpoison, "~> 0.11.1"},
-      {:poison, "~> 3.0"},
+      {:poison, "~> 3.1"},
 
       # Documentation
       {:ex_doc, "~> 0.15.1", only: :dev},
