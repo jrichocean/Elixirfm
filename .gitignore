@@ -23,3 +23,6 @@ config/
 *.DS_Store
 
 ttb_last_config
+
+# ignore fixtures
+test/fixtures/*

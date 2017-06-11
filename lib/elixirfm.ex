@@ -27,7 +27,7 @@ defmodule Elixirfm do
 
   @spec get_request(String.t()) :: {atom(), term()}
   def get_request(endpoint, opts \\ [api_version: "2.0"]) do
-    HTTPoison.request(:get, request_url(endpoint, opts), [], create_headers())
+    HTTPoison.request(:get, request_url(endpoint, opts[:api_version]), [], create_headers())
     |> handle_response()
   end
 

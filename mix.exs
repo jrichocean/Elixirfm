@@ -45,6 +45,7 @@ defmodule Elixirfm.Mixfile do
     [
       {:credo, "~> 0.6", only: [:dev, :test]},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
+      {:exvcr, "~> 0.8", only: :test},
       {:httpoison, "~> 0.11.1"},
       {:poison, "~> 3.0"},
 
