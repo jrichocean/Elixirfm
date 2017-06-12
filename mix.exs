@@ -12,6 +12,7 @@ defmodule Elixirfm.Mixfile do
       deps: deps(),
       package: package(),
       docs: [extras: ["README.md"]],
+      dialyzer: [plt_add_deps: :transitive],
       description: description()
     ]
   end

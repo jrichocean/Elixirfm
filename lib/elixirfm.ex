@@ -37,8 +37,7 @@ defmodule Elixirfm do
 
   defp create_headers do
     app_version = Mix.Project.config[:version]
-    [{"Authorization", "Bearer #{lastfm_key()}"},
-     {"User-Agent", "Elixirfm/v1 elixirfm/#{app_version}"}]
+    [{"Authorization", "Bearer #{lastfm_key()}"}]
   end
 
   @spec handle_response({atom(), map()}) :: tuple()
