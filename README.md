@@ -12,7 +12,7 @@ The package can be installed by:
 
   ```elixir
   def deps do
-    [{:elixirfm, "~> 0.0.10"}]
+    [{:elixirfm, "~> 0.0.11"}]
   end
   ```
 
