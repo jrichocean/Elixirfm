@@ -6,10 +6,10 @@ defmodule Elixirfm do
   @type response :: {atom(), struct()}
 
   alias Elixirfm.{
-          RequestError,
-          MissingApiKeyError,
-          MissingSecretKeyError
-        }
+    RequestError,
+    MissingApiKeyError,
+    MissingSecretKeyError
+  }
 
   @api_root "http://ws.audioscrobbler.com/"
 

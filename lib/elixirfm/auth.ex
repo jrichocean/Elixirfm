@@ -6,15 +6,15 @@ defmodule Elixirfm.Auth do
 
 # http://www.last.fm/api/auth/?api_key=#{Elixirfm.lastfm_key()}
 
-  @api_key Elixirfm.lastfm_key()
-  @api_secret Elixirfm.lastfm_secret()
+  def api_key(), do: Elixirfm.lastfm_key()
+  def api_secret(), do: Elixirfm.lastfm_secret()
 
   @doc """
   If the user is not logged in to Last.fm, they will be redirected to the login
   page before being asked to grant your web application permission to use their account.
   """
   def request_user_auth() do
-    HTTPoison.get("http://www.last.fm/api/auth/?api_key=#{@api_key}")
+    HTTPoison.get("http://www.last.fm/api/auth/?api_key=#{api_key()}")
   end
 
   @doc """
@@ -22,7 +22,7 @@ defmodule Elixirfm.Auth do
   This allows you to have users forward to a specific part of your site after the authorisation process.
   """
   def request_user_auth(optional_callback_url) do
-    HTTPoison.get("http://www.last.fm/api/auth/?api_key=#{@api_key}&#{optional_callback_url}")
+    HTTPoison.get("http://www.last.fm/api/auth/?api_key=#{api_key()}&#{optional_callback_url}")
   end
 
   # @doc """
@@ -34,6 +34,6 @@ defmodule Elixirfm.Auth do
 
   defp create_api_sig() do
     :erlang.md5()
-    @api_key <> "methodauth.getSessiontoken" <> callback_token <> @api_secret
+    api_key() <> "methodauth.getSessiontoken" <> callback_token <> api_secret()
   end
 end
