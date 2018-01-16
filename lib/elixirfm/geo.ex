@@ -2,9 +2,9 @@ defmodule Elixirfm.Geo do
   @moduledoc """
   Last.fm Geo endpoint api
   """
+  @endpoint "geo"
 
-  @doc false
-  def endpoint(), do: "geo"
+  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
 
   @doc """
   Get the most popular artists on Last.fm by country.
@@ -13,7 +13,7 @@ defmodule Elixirfm.Geo do
   """
   @spec get_top_artists(String.t(), [limit: non_neg_integer(), page: non_neg_integer()]) :: Elixirfm.response
   def get_top_artists(query, args \\ [limit: 20, page: 1]) do
-    Elixirfm.get_request("#{endpoint()}.gettopartists&country=#{query}&limit=#{args[:limit]}&page=#{args[:page]}")
+    uri(".gettopartists&country=#{query}&limit=#{args[:limit]}&page=#{args[:page]}")
   end
 
   @doc """
@@ -21,7 +21,7 @@ defmodule Elixirfm.Geo do
   """
   @spec get_top_tracks(String.t(), [limit: non_neg_integer(), page: non_neg_integer(), location: String.t()]) :: Elixirfm.response
   def get_top_tracks(query, args \\ [page: 1, limit: 10, location: ""]) do
-    Elixirfm.get_request("#{endpoint()}.gettoptracks&country=#{query}&page=#{args[:page]}&limit=#{args[:limit]}&location=#{args[:location]}")
+    uri(".gettoptracks&country=#{query}&page=#{args[:page]}&limit=#{args[:limit]}&location=#{args[:location]}")
   end
 
 end

@@ -2,24 +2,22 @@ defmodule Elixirfm.User do
   @moduledoc """
   Last.fm User Enpoints
   """
+  @endpoint "user"
 
-  @doc false
-  def endpoint(), do: "user"
+  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
 
   @doc """
   Get a user's profile infomation.
   """
   @spec get_info(String.t()) :: Elixirfm.response
-  def get_info(user) do
-    Elixirfm.get_request("#{endpoint()}.getinfo&user=#{user}")
-  end
+  def get_info(user), do: uri(".getinfo&user=#{user}")
 
   @doc """
   Get a list of the user's friends on Last.fm.
   """
   @spec get_friends(String.t(), [limit: non_neg_integer(), page: non_neg_integer(), recenttracks: boolean()]) :: Elixirfm.response
   def get_friends(query, args \\ [limit: 15, page: 1, recenttracks: false]) do
-    Elixirfm.get_request("#{endpoint()}.getfriends&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&recenttracks=#{args[:recenttracks]}")
+    uri(".getfriends&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&recenttracks=#{args[:recenttracks]}")
   end
 
   @doc """
@@ -30,7 +28,7 @@ defmodule Elixirfm.User do
   """
   @spec get_artist_tracks(String.t(), String.t(), [page: non_neg_integer()]) :: Elixirfm.response
   def get_artist_tracks(user, artist, args \\ [page: 1]) do
-    Elixirfm.get_request("#{endpoint()}.getartisttracks&user=#{user}&artist=#{artist}&page=#{args[:page]}")
+    uri(".getartisttracks&user=#{user}&artist=#{artist}&page=#{args[:page]}")
   end
 
   @doc """
@@ -40,7 +38,7 @@ defmodule Elixirfm.User do
   """
   @spec get_top_albums(String.t(), [period: String.t(), page: non_neg_integer(), limit: non_neg_integer]) :: Elixirfm.response
   def get_top_albums(query, args \\ [period: "overall", page: 1, limit: 15]) do
-    Elixirfm.get_request("#{endpoint()}.gettopalbums&user=#{query}&peroid=#{args[:peroid]}&page=#{args[:page]}&limit=#{args[:limit]}")
+    uri(".gettopalbums&user=#{query}&peroid=#{args[:peroid]}&page=#{args[:page]}&limit=#{args[:limit]}")
   end
 
   @doc """
@@ -48,23 +46,22 @@ defmodule Elixirfm.User do
   """
   @spec get_top_artists(String.t(), [period: String.t(), page: non_neg_integer(), limit: non_neg_integer()]) :: Elixirfm.response
   def get_top_artists(query, args \\ [period: "overall", page: 1, limit: 15]) do
-    Elixirfm.get_request("#{endpoint()}.gettopartists&user=#{query}&peroid=#{args[:peroid]}&limit=#{args[:limit]}&page=#{args[:page]}")
+    uri(".gettopartists&user=#{query}&peroid=#{args[:peroid]}&limit=#{args[:limit]}&page=#{args[:page]}")
   end
 
   @doc """
   Get the top tags used by this user.
   """
   @spec get_top_tags(String.t(), [limit: non_neg_integer()]) :: Elixirfm.response
-  def get_top_tags(query, args \\ [limit: 15]) do
-    Elixirfm.get_request("#{endpoint()}.gettoptags&user=#{query}&limit=#{args[:limit]}")
-  end
+  def get_top_tags(query, args \\ [limit: 15]),
+    do: uri(".gettoptags&user=#{query}&limit=#{args[:limit]}")
 
   @doc """
   Get the top tracks listened to by a user. You can stipulate a time period. Sends the overall chart by default.
   """
   @spec get_top_track(String.t(), [peroid: String.t(), page: non_neg_integer(), limit: non_neg_integer()]) :: Elixirfm.response
   def get_top_track(query, args \\ [peroid: "overall", page: 1, limit: 15]) do
-    Elixirfm.get_request("#{endpoint()}.gettoptracks&user=#{query}&page=#{args[:page]}&limit=#{args[:limit]}")
+    uri(".gettoptracks&user=#{query}&page=#{args[:page]}&limit=#{args[:limit]}")
   end
 
   # @doc """
@@ -72,7 +69,7 @@ defmodule Elixirfm.User do
   # If no date range is supplied, it will return the most recent album chart for this user.
   # """
   # def get_album_chart(query args \\ [from: , to: ]) do
-  #   Elixirfm.get_request("#{endpoint}.getweeklyalbumchart&user=#{query}&from=#{args[:from]}&to=#{args[:to]}")
+  #   get_request("#{endpoint}.getweeklyalbumchart&user=#{query}&from=#{args[:from]}&to=#{args[:to]}")
   # end
 
   # @doc """
@@ -80,23 +77,21 @@ defmodule Elixirfm.User do
   # If no date range is supplied, it will return the most recent artist chart for this user.)
   # """
   # def get_artist_chart(query args \\ [from: , to: ]) do
-  #   Elixirfm.get_request("#{endpoint}.getweeklyartistchart&user=#{query}&from=#{args[:from]}&to=#{args[:to]}")
+  #   get_request("#{endpoint}.getweeklyartistchart&user=#{query}&from=#{args[:from]}&to=#{args[:to]}")
   # end
 
   @doc """
   Get a list of available charts for this user, expressed as date ranges which can be sent to the chart services.
   """
   @spec get_weekly_charts(String.t()) :: Elixirfm.response
-  def get_weekly_charts(user) do
-    Elixirfm.get_request("#{endpoint()}.getweeklychartlist&user=#{user}")
-  end
+  def get_weekly_charts(user), do: uri(".getweeklychartlist&user=#{user}")
 
   # @doc """
   # Get a track chart for a user profile, for a given date range.
   # If no date range is supplied, it will return the most recent track chart for this user.
   # """
   # def get_weekly_track_chart(query args \\ [from: , to: ]) do
-  #   Elixirfm.get_request("#{endpoint}.getweeklytrackchart&user=#{query}&from=#{args[:from]}&to=#{args[:to]}")
+  #   get_request("#{endpoint}.getweeklytrackchart&user=#{query}&from=#{args[:from]}&to=#{args[:to]}")
   # end
 
 
@@ -104,9 +99,8 @@ defmodule Elixirfm.User do
   Get the last 50 tracks loved by a user.
   """
   @spec get_loved_tracks(String.t(), [page: non_neg_integer(), limit: non_neg_integer()]) :: Elixirfm.response
-  def get_loved_tracks(query, args \\ [page: 1, limit: 50]) do
-    Elixirfm.get_request("#{endpoint()}.getlovedtracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}")
-  end
+  def get_loved_tracks(query, args \\ [page: 1, limit: 50]),
+    do: uri(".getlovedtracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}")
 
   @doc """
   Get a list of the recent tracks listened to by this user.
@@ -118,6 +112,6 @@ defmodule Elixirfm.User do
   """
   @spec get_recent_tracks(String.t(), [limit: non_neg_integer(), page: non_neg_integer(), extended_info: non_neg_integer()]) :: Elixirfm.response
   def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended_info: 0]) do
-    Elixirfm.get_request("#{endpoint()}.getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended#{args[:extended_info]}")
+    uri(".getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended#{args[:extended_info]}")
   end
 end

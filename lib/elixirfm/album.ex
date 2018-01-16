@@ -8,16 +8,16 @@ defmodule Elixirfm.Album do
     1. album.getTags
     2. album.removeTag
   """
+  @endpoint "album"
 
-  @doc false
-  def endpoint(), do: "album"
+  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
 
   @doc """
   Search for an album by name. Returns album matches sorted by relevance.
   """
   @spec search(String.t(), keyword()) :: Elixirfm.response
   def search(query, args \\ [limit: 5, page: 1]) do
-    Elixirfm.get_request("#{endpoint()}.search&album=#{query}&page=#{args[:page]}&limit=#{args[:limit]}")
+    uri(".search&album=#{query}&page=#{args[:page]}&limit=#{args[:limit]}")
   end
 
   @doc """
@@ -25,7 +25,7 @@ defmodule Elixirfm.Album do
   """
   @spec get_info(String.t(), String.t(), keyword()) :: Elixirfm.response
   def get_info(artist, album, args \\ [username: "", lang: "eng"]) do
-    Elixirfm.get_request("#{endpoint()}.getinfo&artist=#{artist}&album=#{album}&username=#{args[:username]}&lang=#{args[:lang]}")
+    uri(".getinfo&artist=#{artist}&album=#{album}&username=#{args[:username]}&lang=#{args[:lang]}")
   end
 
   # @doc """
@@ -33,7 +33,7 @@ defmodule Elixirfm.Album do
   # Gets an Albums tags applied by an individual. If not authenticated, must pass username
   # """
   # def get_tags(artist, album, args \\ []) do
-  #   Elixirfm.get_request("#{endpoint()}.gettags&artist=#{artist}&album=#{album}")
+  #   uri("#{@endpoint}.gettags&artist=#{artist}&album=#{album}")
   # end
 
   @doc """
@@ -41,7 +41,6 @@ defmodule Elixirfm.Album do
   """
   @spec get_top_tags(String.t(), String.t(), keyword()) :: Elixirfm.response
   def get_top_tags(artist, album, args \\ [autocorrect: 0]) do
-    Elixirfm.get_request("#{endpoint()}.gettoptags&artist=#{artist}&album=#{album}&autocorrect=#{args[:autocorrect]}")
+    uri(".gettoptags&artist=#{artist}&album=#{album}&autocorrect=#{args[:autocorrect]}")
   end
-
 end
