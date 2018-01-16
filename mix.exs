@@ -5,7 +5,7 @@ defmodule Elixirfm.Mixfile do
   def project do
     [
       app: :elixirfm,
-      version: "0.1.1",
+      version: "0.1.2",
       elixir: "~> 1.5.1",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -17,9 +17,7 @@ defmodule Elixirfm.Mixfile do
     ]
   end
 
-  def description do
-    "Lastfm API client for Elixir"
-  end
+  def description, do: "Lastfm API client for Elixir"
 
   def package do
     [
