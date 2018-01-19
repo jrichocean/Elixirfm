@@ -9,9 +9,9 @@ defmodule Elixirfm.Artist do
     artist.getTags
     artist.removeTags
   """
-  @endpoint "artist"
+  @method "artist"
 
-  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
+  defp uri(url), do: Elixirfm.get_request(@method <> url)
 
   @doc """
   Search an artist

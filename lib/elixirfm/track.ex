@@ -2,9 +2,9 @@ defmodule Elixirfm.Track do
   @moduledoc """
   Wrapper for Last.fm Track endpoints
   """
-  @endpoint "track"
+  @method "track"
 
-  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
+  defp uri(url), do: Elixirfm.get_request(@method <> url)
 
   # @doc """
   # Tag an album using a list of user supplied tags.
@@ -25,7 +25,7 @@ defmodule Elixirfm.Track do
   """
   @spec get_info(String.t(), String.t(), [username: String.t()]) :: Elixirfm.response
   def get_info(artist, track, args \\ [username: ""]),
-    do: uri(".track.getInfo&artist=#{artist}&track=#{track}&username=#{args[:username]}")
+    do: uri(".getInfo&artist=#{artist}&track=#{track}&username=#{args[:username]}")
 
   @doc """
   Get the similar tracks for this track on Last.fm, based on listening data.

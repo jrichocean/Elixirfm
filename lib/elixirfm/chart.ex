@@ -2,11 +2,11 @@ defmodule Elixirfm.Chart do
   @moduledoc """
   Wrapper for Last.fm Chart endpoints.
   """
-  @endpoint "chart"
+  @method "chart"
 
   @type chart_opts :: [page: non_neg_integer(), limit: non_neg_integer()]
 
-  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
+  defp uri(url), do: Elixirfm.get_request(@method <> url)
 
   @doc """
   Get the top artists chart

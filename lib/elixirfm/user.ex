@@ -2,9 +2,9 @@ defmodule Elixirfm.User do
   @moduledoc """
   Last.fm User Enpoints
   """
-  @endpoint "user"
+  @method "user"
 
-  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
+  defp uri(url), do: Elixirfm.get_request(@method <> url)
 
   @doc """
   Get a user's profile infomation.

@@ -2,9 +2,9 @@ defmodule Elixirfm.Geo do
   @moduledoc """
   Last.fm Geo endpoint api
   """
-  @endpoint "geo"
+  @method "geo"
 
-  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
+  defp uri(url), do: Elixirfm.get_request(@method <> url)
 
   @doc """
   Get the most popular artists on Last.fm by country.

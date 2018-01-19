@@ -8,9 +8,9 @@ defmodule Elixirfm.Album do
     1. album.getTags
     2. album.removeTag
   """
-  @endpoint "album"
+  @method "album"
 
-  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
+  defp uri(url), do: Elixirfm.get_request(@method <> url)
 
   @doc """
   Search for an album by name. Returns album matches sorted by relevance.
@@ -33,7 +33,7 @@ defmodule Elixirfm.Album do
   # Gets an Albums tags applied by an individual. If not authenticated, must pass username
   # """
   # def get_tags(artist, album, args \\ []) do
-  #   uri("#{@endpoint}.gettags&artist=#{artist}&album=#{album}")
+  #   uri("#{@method}.gettags&artist=#{artist}&album=#{album}")
   # end
 
   @doc """

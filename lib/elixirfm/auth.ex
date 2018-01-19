@@ -1,39 +1,53 @@
 defmodule Elixirfm.Auth do
   @moduledoc """
-  Wrapper for authenticating a user with Last.fm
-  _Support coming soon_
+  Functions for authenticating a user with Last.fm
   """
+  @endpoint "http://www.last.fm/api/auth/"
 
-# http://www.last.fm/api/auth/?api_key=#{Elixirfm.lastfm_key()}
+  defp api_key(), do: Elixirfm.lastfm_key()
+  defp api_secret(), do: Elixirfm.lastfm_secret()
 
-  # defp api_key(), do: Elixirfm.lastfm_key()
-  # defp api_secret(), do: Elixirfm.lastfm_secret()
+  defp uri(url) do
+    HTTPoison.get(@endpoint <> url)
+  end
 
-  # @doc """
-  # If the user is not logged in to Last.fm, they will be redirected to the login
-  # page before being asked to grant your web application permission to use their account.
-  # """
-  # def request_user_auth() do
-  #   HTTPoison.get("http://www.last.fm/api/auth/?api_key=#{api_key()}")
-  # end
+  @doc """
+  request_user_auth/0 checks if the user is logged in to Last.fm, if not they will be redirected
+  to the login page before being asked to grant your web application permission to use their account.
+  You can optionally specify a callback URL that is different to your API Account callback url.
+  to do this see the request_user_auth/1 function
+  """
+  def request_user_auth(), do: HTTPoison.get(@endpoint)
 
-  # @doc """
-  # You can optionally specify a callback URL that is different to your API Account callback url. Include this as a query param cb.
-  # This allows you to have users forward to a specific part of your site after the authorisation process.
-  # """
-  # def request_user_auth(optional_callback_url) do
-  #   HTTPoison.get("http://www.last.fm/api/auth/?api_key=#{api_key()}&#{optional_callback_url}")
-  # end
+  @doc """
+  request_user_auth/1 includes the query param `&cb=`. This allows you to have users to
+  forward to a specific part of your site after the authorization process.
+  """
+  def request_user_auth(optional_callback_url) do
+    uri("?api_key=#{api_key()}&cb=#{optional_callback_url}")
+  end
 
-  # # @doc """
-  # # Fetch a session key for a user. The third step in the authentication process.
-  # # See the authentication how-to for more information.
-  # # """
-  # # def get_session(api_key, api_token, api_sig) do
-  # # end
+  @doc """
+  get_session/1 Fetches a session key for a user. It takes either the token returned
+  after executing request_user_auth/1 or an anonymous function that returns the callback
+  token as a string. This is the third step in the Last.fm authentication process.
+  """
+  @spec get_session(String.t|function) :: {:ok, term}|{:error, term}
+  def get_session(callback_token) when is_binary(callback_token) do
+    uri("auth.getSession&token=" <> _api_sig(callback_token))
+  end
+  def get_session(fun) when is_function(fun) do
+    case String.valid?(fun.()) do
+      token when token == true -> {:ok, get_session(token)}
+      false -> {:error, "function did not return valid string"}
+    end
+  end
+  def get_session(_), do: {:error, "arg must be a string or anonymous function"}
 
-  # defp create_api_sig() do
-  #   :erlang.md5()
-  #   api_key() <> "methodauth.getSessiontoken" <> callback_token <> api_secret()
-  # end
+  def _api_sig(callback_token) do
+    ["api_key", api_key(), "methodauth.getSessiontoken", callback_token, api_secret()]
+    |> Enum.join()
+    |> :erlang.md5()
+  end
 end
+

@@ -2,12 +2,12 @@ defmodule Elixirfm.Tag do
   @moduledoc """
   Wrapper for Last.fm Tags endpoints
   """
-  @endpoint "tag"
+  @method "tag"
 
   @type tag_opts :: [page: non_neg_integer(), limit: non_neg_integer()]
 
 
-  defp uri(url), do: Elixirfm.get_request(@endpoint <> url)
+  defp uri(url), do: Elixirfm.get_request(@method <> url)
 
   @doc """
   Get the metadata for a tag

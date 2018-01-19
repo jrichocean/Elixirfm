@@ -2,7 +2,6 @@ defmodule Elixirfm do
   @moduledoc """
   A simple wrapper for the Lastfm API.
   """
-
   @type response :: {atom(), struct()}
 
   alias Elixirfm.{
@@ -14,13 +13,13 @@ defmodule Elixirfm do
   @api_root "http://ws.audioscrobbler.com/"
 
   @doc false
-  defp lastfm_key() do
+  def lastfm_key() do
     Application.get_env(:elixirfm, :api_key, System.get_env("LASTFM_API_KEY"))
     || raise MissingApiKeyError
   end
 
   @doc false
-  defp lastfm_secret() do
+  def lastfm_secret() do
     Application.get_env(:elixirfm, :secret_key, System.get_env("LASTFM_SECRET_KEY"))
     || raise MissingSecretKeyError
   end
