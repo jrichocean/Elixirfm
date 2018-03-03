@@ -43,8 +43,8 @@ defmodule Elixirfm.Mixfile do
     [
       {:credo, "~> 0.6", only: [:dev, :test]},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:exvcr, "~> 0.8", only: :test},
-      {:httpoison, "~> 0.13.0"},
+      {:exvcr, "~> 0.8.0", only: :test},
+      {:httpoison, "~> 1.0.0", override: true},
       {:poison, "~> 3.1"},
 
       # Documentation
