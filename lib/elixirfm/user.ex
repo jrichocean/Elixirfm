@@ -5,7 +5,7 @@ defmodule Elixirfm.User do
 
   @type recent_track_arg :: {:limit, non_neg_integer()}
                             | {:page, non_neg_integer()}
-                            | {:extended_info, non_neg_integer()}
+                            | {:extended, non_neg_integer()}
                             | {:to, non_neg_integer()}
                             | {:from, non_neg_integer()}
 
@@ -115,15 +115,15 @@ defmodule Elixirfm.User do
   Get a list of the recent tracks listened to by this user.
   Also includes the currently playing track with the nowplaying="true" attribute if the user is currently listening.
 
-  ```extended_info``` argument accepts 1 or 0 as true or false
+  ```extended``` argument accepts 1 or 0 as true or false
 
   _to and from arguments not implemented yet_
   """
   @spec get_recent_tracks(String.t(), recent_track_args) :: Elixirfm.response
-  def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended_info: 0, to: 0, from: 0]) do
+  def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended: 0, to: 0, from: 0]) do
     to = if args[:to] != 0, do: "&to=#{args[:to]}", else: ""
     from = if args[:from] != 0, do: "&from=#{args[:from]}", else: ""
-    uri(".getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended=#{args[:extended_info]}#{to}#{from}")
+    uri(".getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended=#{args[:extended]}#{to}#{from}")
   end
 
 end
