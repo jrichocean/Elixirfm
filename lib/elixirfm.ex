@@ -31,7 +31,8 @@ defmodule Elixirfm do
   end
 
   defp request_url(endpoint, opts) do
-    Enum.join([@api_root, "#{opts}/?method=", endpoint, "&api_key=", lastfm_key(), "&format=json"])
+    base_url = Application.get_env(:elixirfm, :lastfm_ws) || @api_root
+    Enum.join([base_url, "#{opts}/?method=", endpoint, "&api_key=", lastfm_key(), "&format=json"])
   end
 
   defp create_headers(), do: [{"Authorization", "Bearer #{lastfm_key()}"}]
