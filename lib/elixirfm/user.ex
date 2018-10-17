@@ -2,6 +2,15 @@ defmodule Elixirfm.User do
   @moduledoc """
   Last.fm User Enpoints
   """
+
+  @type recent_track_arg :: {:limit, non_neg_integer()}
+                            | {:page, non_neg_integer()}
+                            | {:extended_info, non_neg_integer()}
+                            | {:to, non_neg_integer()}
+                            | {:from, non_neg_integer()}
+
+  @type recent_track_args :: [recent_track_arg]
+
   @method "user"
 
   defp uri(url), do: Elixirfm.get_request(@method <> url)
