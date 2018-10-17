@@ -119,8 +119,11 @@ defmodule Elixirfm.User do
 
   _to and from arguments not implemented yet_
   """
-  @spec get_recent_tracks(String.t(), [limit: non_neg_integer(), page: non_neg_integer(), extended_info: non_neg_integer()]) :: Elixirfm.response
-  def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended_info: 0]) do
-    uri(".getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended=#{args[:extended_info]}")
+  @spec get_recent_tracks(String.t(), recent_track_args) :: Elixirfm.response
+  def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended_info: 0, to: 0, from: 0]) do
+    to = if args[:to] != 0, do: "&to=#{args[:to]}", else: ""
+    from = if args[:from] != 0, do: "&from=#{args[:from]}", else: ""
+    uri(".getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended=#{args[:extended_info]}#{to}#{from}")
   end
+
 end
