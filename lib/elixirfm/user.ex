@@ -121,9 +121,13 @@ defmodule Elixirfm.User do
   """
   @spec get_recent_tracks(String.t(), recent_track_args) :: Elixirfm.response
   def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended: 0, to: 0, from: 0]) do
-    to = if args[:to] != 0, do: "&to=#{args[:to]}", else: ""
-    from = if args[:from] != 0, do: "&from=#{args[:from]}", else: ""
-    uri(".getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended=#{args[:extended]}#{to}#{from}")
+    ext_query_string = encode(args) |> Enum.join
+    uri(".getrecenttracks&user=#{query}#{ext_query_string}")
   end
+
+  defp encode(nil), do: ""
+  defp encode({_k, 0}), do: ""
+  defp encode({k, v}), do: "&#{k}=#{v}"
+  defp encode(args), do: for {k, v} <- args, do: encode({k, v})
 
 end
