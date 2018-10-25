@@ -112,6 +112,6 @@ defmodule Elixirfm.User do
   """
   @spec get_recent_tracks(String.t(), [limit: non_neg_integer(), page: non_neg_integer(), extended_info: non_neg_integer()]) :: Elixirfm.response
   def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended_info: 0]) do
-    uri(".getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended#{args[:extended_info]}")
+    uri(".getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended=#{args[:extended_info]}")
   end
 end
