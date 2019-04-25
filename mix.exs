@@ -44,13 +44,13 @@ defmodule Elixirfm.Mixfile do
   # Dependencies
   defp deps do
     [
-      {:credo, "~> 0.6", only: [:dev, :test]},
+      {:credo, "~> 1.0.0", only: [:dev, :test]},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:ex_doc, "~> 0.18.0", only: :dev},
+      {:ex_doc, "~> 0.20.0", only: :dev},
       {:exvcr, "~> 0.10.0", only: :test},
-      {:httpoison, "~> 1.1.1"},
+      {:httpoison, "~> 1.5.1"},
       # {:inch_ex, "~> 0.5", only: [:dev, :test]},
-      {:poison, "~> 3.1"},
+      {:poison, "~> 4.0.0"},
     ]
   end
 end
