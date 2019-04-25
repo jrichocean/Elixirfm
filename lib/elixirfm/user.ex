@@ -2,6 +2,15 @@ defmodule Elixirfm.User do
   @moduledoc """
   Last.fm User Enpoints
   """
+
+  @type recent_track_arg :: {:limit, non_neg_integer()}
+                            | {:page, non_neg_integer()}
+                            | {:extended, non_neg_integer()}
+                            | {:to, non_neg_integer()}
+                            | {:from, non_neg_integer()}
+
+  @type recent_track_args :: [recent_track_arg]
+
   @method "user"
 
   defp uri(url), do: Elixirfm.get_request(@method <> url)
@@ -106,12 +115,19 @@ defmodule Elixirfm.User do
   Get a list of the recent tracks listened to by this user.
   Also includes the currently playing track with the nowplaying="true" attribute if the user is currently listening.
 
-  ```extended_info``` argument accepts 1 or 0 as true or false
+  ```extended``` argument accepts 1 or 0 as true or false
 
   _to and from arguments not implemented yet_
   """
-  @spec get_recent_tracks(String.t(), [limit: non_neg_integer(), page: non_neg_integer(), extended_info: non_neg_integer()]) :: Elixirfm.response
-  def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended_info: 0]) do
-    uri(".getrecenttracks&user=#{query}&limit=#{args[:limit]}&page=#{args[:page]}&extended#{args[:extended_info]}")
+  @spec get_recent_tracks(String.t(), recent_track_args) :: Elixirfm.response
+  def get_recent_tracks(query, args \\ [limit: 20, page: 1, extended: 0, to: 0, from: 0]) do
+    ext_query_string = encode(args) |> Enum.join
+    uri(".getrecenttracks&user=#{query}#{ext_query_string}")
   end
+
+  defp encode(nil), do: ""
+  defp encode({_k, 0}), do: ""
+  defp encode({k, v}), do: "&#{k}=#{v}"
+  defp encode(args), do: for {k, v} <- args, do: encode({k, v})
+
 end
