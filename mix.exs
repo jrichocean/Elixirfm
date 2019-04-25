@@ -45,7 +45,7 @@ defmodule Elixirfm.Mixfile do
   defp deps do
     [
       {:credo, "~> 1.0.0", only: [:dev, :test]},
-      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false},
       {:ex_doc, "~> 0.20.0", only: :dev},
       {:exvcr, "~> 0.10.0", only: :test},
       {:httpoison, "~> 1.5.1"},
