@@ -1,5 +1,5 @@
 defmodule Elixirfm.TagTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Tag
 
@@ -10,7 +10,7 @@ defmodule Elixirfm.TagTest do
 
   test "get_info/1 returns sucessful response" do
     use_cassette "ok_get_info_response" do
-      assert {:ok, %{"tag" => _}} = get_info("spain")
+      assert {:ok, %{"tag" => _}} = Elixirfm.Tag.get_info("spain")
     end
   end
 

@@ -1,5 +1,5 @@
 defmodule Elixirfm.ArtistTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Artist
 
@@ -40,7 +40,7 @@ defmodule Elixirfm.ArtistTest do
 
   test "get_top_tracks/1 returns sucessful response" do
     use_cassette "ok_get_top_tracks_response" do
-      assert {:ok, %{"toptracks" => _}} = get_top_tracks("Amon Amarth")
+      assert {:ok, %{"toptracks" => _}} = Elixirfm.Artist.get_top_tracks("Amon Amarth")
     end
   end
 

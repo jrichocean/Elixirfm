@@ -1,5 +1,5 @@
 defmodule Elixirfm.AuthTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Auth
 

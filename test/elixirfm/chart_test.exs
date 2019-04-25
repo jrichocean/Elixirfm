@@ -1,5 +1,5 @@
 defmodule Elixirfm.ChartTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Chart
 
@@ -10,7 +10,7 @@ defmodule Elixirfm.ChartTest do
 
   test "get_top_artists/0 returns sucessful response" do
     use_cassette "ok_get_top_artists_response" do
-      assert {:ok, %{"artists" => _}} = get_top_artists()
+      assert {:ok, %{"topartists" => _}} = get_top_artists()
     end
   end
 
@@ -22,7 +22,7 @@ defmodule Elixirfm.ChartTest do
 
   test "get_top_tags/0 returns sucessful response" do
     use_cassette "ok_get_top_tags_response" do
-      assert {:ok, %{"tags" => _}} = get_top_tags()
+      assert {:ok, %{"toptags" => _}} = get_top_tags()
     end
   end
 
