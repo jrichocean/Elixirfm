@@ -1,5 +1,5 @@
 defmodule Elixirfm.TrackTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Track
 
@@ -21,8 +21,8 @@ defmodule Elixirfm.TrackTest do
   end
 
   test "get_similar/2 returns sucessful response" do
-    use_cassette "ok_get_similar_response" do
-      assert {:ok, %{"similartracks" => _}} = get_similar("kvelertak", "meir")
+    use_cassette "ok_get_similar_track_response" do
+      assert {:ok, %{"similartracks" => _}} = Elixirfm.Track.get_similar("kvelertak", "meir")
     end
   end
 

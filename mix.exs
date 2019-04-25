@@ -12,7 +12,10 @@ defmodule Elixirfm.Mixfile do
       package: package(),
       docs: [extras: ["README.md"]],
       dialyzer: [plt_add_deps: :transitive],
-      description: description()
+      description: description(),
+      preferred_cli_env: [
+        vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test
+      ]
     ]
   end
 
@@ -41,15 +44,13 @@ defmodule Elixirfm.Mixfile do
   # Dependencies
   defp deps do
     [
-      {:credo, "~> 0.6", only: [:dev, :test]},
-      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:exvcr, "~> 0.8.0", only: :test},
-      {:httpoison, "~> 1.0.0"},
-      {:poison, "~> 3.1"},
-
-      # Documentation
-      {:ex_doc, "~> 0.18.0", only: :dev},
-      {:inch_ex, "~> 0.5", only: [:dev, :test]}
+      {:credo, "~> 1.0.0", only: [:dev, :test]},
+      {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false},
+      {:ex_doc, "~> 0.20.0", only: :dev},
+      {:exvcr, "~> 0.10.0", only: :test},
+      {:httpoison, "~> 1.5.1"},
+      # {:inch_ex, "~> 0.5", only: [:dev, :test]},
+      {:poison, "~> 4.0.0"},
     ]
   end
 end

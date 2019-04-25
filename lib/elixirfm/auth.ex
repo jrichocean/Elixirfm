@@ -32,7 +32,6 @@ defmodule Elixirfm.Auth do
   after executing request_user_auth/1 or an anonymous function that returns the callback
   token as a string. This is the third step in the Last.fm authentication process.
   """
-  @spec get_session(String.t|function) :: {:ok, term}|{:error, term}
   def get_session(callback_token) when is_binary(callback_token) do
     uri("auth.getSession&token=" <> _api_sig(callback_token))
   end

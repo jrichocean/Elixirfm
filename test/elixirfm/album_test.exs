@@ -1,9 +1,9 @@
 defmodule Elixirfm.AlbumTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Album
 
-  setup_all do
+  setup do
     ExVCR.Config.cassette_library_dir("test/fixtures/vcr_cassettes/album")
     :ok
   end
