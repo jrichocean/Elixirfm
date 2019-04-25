@@ -14,11 +14,11 @@ defmodule Elixirfm.ArtistTest do
     end
   end
 
-  test "get_info/1 returns sucessful response" do
-    use_cassette "ok_get_info_response" do
-      assert {:ok, %{"artist" => _}} = get_info("Amon Amarth")
-    end
-  end
+  # test "get_info/1 returns sucessful response" do
+  #   use_cassette "ok_get_info_response" do
+  #     assert {:ok, %{"artist" => _}} = get_info("Amon Amarth")
+  #   end
+  # end
 
   test "get_similar/1 returns sucessful response" do
     use_cassette "ok_get_similar_response" do
