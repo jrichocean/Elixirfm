@@ -4,7 +4,7 @@ defmodule Elixirfm.Mixfile do
   def project do
     [
       app: :elixirfm,
-      version: "0.1.4",
+      version: "0.1.5",
       elixir: "~> 1.5",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -49,7 +49,7 @@ defmodule Elixirfm.Mixfile do
       {:ex_doc, "~> 0.18.0", only: :dev},
       {:exvcr, "~> 0.10.0", only: :test},
       {:httpoison, "~> 1.1.1"},
-      {:inch_ex, "~> 0.5", only: [:dev, :test]},
+      # {:inch_ex, "~> 0.5", only: [:dev, :test]},
       {:poison, "~> 3.1"},
     ]
   end
