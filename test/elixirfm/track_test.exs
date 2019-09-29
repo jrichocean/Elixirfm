@@ -37,4 +37,16 @@ defmodule Elixirfm.TrackTest do
   #     assert {:ok, %{"tags" => _}} = get_tags("kvelertak", "meir")
   #   end
   # end
+
+  test "search_track/1 returns successful response" do
+    use_cassette "ok_search_track_1_response" do
+      assert {:ok, %{"trackmatches" => _}} = Elixirfm.Track.search_track("kvelertak")
+    end
+  end
+
+  test "search_track/2 returns successful response" do
+    use_cassette "ok_search_track_2_response" do
+      assert {:ok, %{"trackmatches" => _}} = Elixirfm.Track.search_track("kvelertak", "kvelertak")
+    end
+  end
 end
