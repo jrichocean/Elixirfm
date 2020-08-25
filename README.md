@@ -2,6 +2,7 @@
 
 Last.fm API wrapper for Elixir. [(Documentation)](https://hexdocs.pm/elixirfm/)
 
+
 ### Installation
 
 The package can be installed by:
@@ -10,7 +11,7 @@ The package can be installed by:
 
   ```elixir
   def deps do
-    [{:elixirfm, "~> 0.1.0"}]
+    [{:elixirfm, "~> 1.0.0"}]
   end
   ```
 
