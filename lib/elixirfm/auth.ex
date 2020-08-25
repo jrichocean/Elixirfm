@@ -1,27 +1,25 @@
 defmodule Elixirfm.Auth do
-  @moduledoc """
-  Functions for authenticating a user with Last.fm
-  """
+  @moduledoc "Functions for authenticating a user with Last.fm"
+  
   @endpoint "http://www.last.fm/api/auth/"
 
-  defp api_key(), do: Elixirfm.lastfm_key()
-  defp api_secret(), do: Elixirfm.lastfm_secret()
+  defp api_key(), do: Elixirfm._lastfm_key()
+  
+  defp api_secret(), do: Elixirfm._lastfm_secret()
 
-  defp uri(url) do
-    HTTPoison.get(@endpoint <> url)
-  end
+  defp uri(url), do: HTTPoison.get(@endpoint <> url)
 
   @doc """
   request_user_auth/0 checks if the user is logged in to Last.fm, if not they will be redirected
   to the login page before being asked to grant your web application permission to use their account.
   You can optionally specify a callback URL that is different to your API Account callback url.
-  to do this see the request_user_auth/1 function
+  to do this see the `request_user_auth/1` function
   """
   def request_user_auth(), do: HTTPoison.get(@endpoint)
 
   @doc """
   request_user_auth/1 includes the query param `&cb=`. This allows you to have users to
-  forward to a specific part of your site after the authorization process.
+  forward to an alternate callback url of your site after the authorization process.
   """
   def request_user_auth(optional_callback_url) do
     uri("?api_key=#{api_key()}&cb=#{optional_callback_url}")

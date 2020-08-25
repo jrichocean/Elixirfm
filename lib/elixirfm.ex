@@ -1,7 +1,5 @@
 defmodule Elixirfm do
-  @moduledoc """
-  A simple wrapper for the Lastfm API.
-  """
+  @moduledoc "A simple wrapper for the Lastfm API."
   @type response :: {atom(), struct()}
 
   alias Elixirfm.{
@@ -10,32 +8,41 @@ defmodule Elixirfm do
     MissingSecretKeyError
   }
 
-  @api_root "http://ws.audioscrobbler.com/"
+  @api_root "http://ws.audioscrobbler.com/2.0/"
 
   @doc false
-  def lastfm_key() do
+  def _base_url(), do: Application.get_env(:elixirfm, :lastfm_ws) || @api_root
+
+  @doc false
+  def _lastfm_key() do
     Application.get_env(:elixirfm, :api_key, System.get_env("LASTFM_API_KEY"))
     || raise MissingApiKeyError
   end
 
   @doc false
-  def lastfm_secret() do
+  def _lastfm_secret() do
     Application.get_env(:elixirfm, :secret_key, System.get_env("LASTFM_SECRET_KEY"))
     || raise MissingSecretKeyError
   end
 
-  @spec get_request(String.t(), keyword()) :: {atom(), term()}
-  def get_request(endpoint, opts \\ [api_version: "2.0"]) do
-    HTTPoison.request(:get, request_url(endpoint, opts[:api_version]), [], create_headers())
+  @doc "get_request/1 takes name of endpoint as string"
+  def get_request(endpoint) do
+    HTTPoison.request(:get, request_url(endpoint, nil), [], create_headers())
     |> handle_response()
   end
 
-  defp request_url(endpoint, opts) do
-    base_url = Application.get_env(:elixirfm, :lastfm_ws) || @api_root
-    Enum.join([base_url, "#{opts}/?method=", endpoint, "&api_key=", lastfm_key(), "&format=json"])
+  @doc "get_request/2 takes name of endpoint as string and args"
+  def get_request(endpoint, args) do
+    HTTPoison.request(:get, request_url(endpoint, args), [], create_headers())
+    |> handle_response()
   end
 
-  defp create_headers(), do: [{"Authorization", "Bearer #{lastfm_key()}"}]
+  defp request_url(endpoint, args) do
+    Enum.join([_base_url(), "?method=", endpoint, encode_params(args), "&api_key=", _lastfm_key(), "&format=json"])
+  end
+
+  defp create_headers(),
+    do: [{"Authorization", "Bearer #{_lastfm_key()}"}]
 
   @spec handle_response({atom(), map()}) :: tuple()
   defp handle_response({:error, struct}), do: {:error, "There was an error", struct}
@@ -45,4 +52,9 @@ defmodule Elixirfm do
     error_struct = %RequestError{type: code, error: error, message: message, headers: headers}
     {:error, error_struct}
   end
+
+  defp encode_params(nil), do: ""
+  defp encode_params({_k, 0}), do: ""
+  defp encode_params({k, v}), do: "&#{k}=#{v}"
+  defp encode_params(args), do: for {k, v} <- args, do: encode_params({k, v})
 end

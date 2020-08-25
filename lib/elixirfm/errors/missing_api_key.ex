@@ -1,4 +1,5 @@
 defmodule Elixirfm.MissingApiKeyError do
+  @moduledoc "Missing Api Key Error"
   defexception message: """
     The api_key settings is required for some of the Lastfm endpoints. Please include your
     Last.fm api key in your application config file like so:

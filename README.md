@@ -2,8 +2,6 @@
 
 Last.fm API wrapper for Elixir. [(Documentation)](https://hexdocs.pm/elixirfm/)
 
-_Currently supports all non-authenticated endpoints._
-
 ### Installation
 
 The package can be installed by:

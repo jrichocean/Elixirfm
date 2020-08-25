@@ -1,10 +1,10 @@
 defmodule Elixirfm.Track do
-  @moduledoc """
-  Wrapper for Last.fm Track endpoints
-  """
+  @moduledoc "Functions for Last.fm Track endpoints"
+  
   @method "track"
 
   defp uri(url), do: Elixirfm.get_request(@method <> url)
+  defp uri(url, args), do: Elixirfm.get_request(@method <> url, args)
 
   # @doc """
   # Tag an album using a list of user supplied tags.
@@ -16,37 +16,37 @@ defmodule Elixirfm.Track do
   @doc """
   Use the last.fm corrections data to check whether the supplied track has a correction to a canonical track.
   """
-  @spec get_correction(String.t(), String.t()) :: Elixirfm.response
-  def get_correction(artist, track),
+  @spec correction(String.t(), String.t()) :: Elixirfm.response
+  def correction(artist, track),
     do: uri(".getcorrection&artist=#{artist}&track=#{track}")
 
   @doc """
   Get the metadata for a track on Last.fm using the artist & track name.
   """
-  @spec get_info(String.t(), String.t(), [username: String.t()]) :: Elixirfm.response
-  def get_info(artist, track, args \\ [username: ""]),
-    do: uri(".getInfo&artist=#{artist}&track=#{track}&username=#{args[:username]}")
+  @spec info(String.t(), String.t(), [username: String.t()]) :: Elixirfm.response
+  def info(artist, track, args \\ [username: ""]),
+    do: uri(".getInfo&artist=#{artist}&track=#{track}", args)
 
   @doc """
   Get the similar tracks for this track on Last.fm, based on listening data.
   """
-  @spec get_similar(String.t(), String.t(), [limit: non_neg_integer()]) :: Elixirfm.response
-  def get_similar(artist, track, args \\ [limit: 20]),
-    do: uri(".getsimilar&artist=#{artist}&track=#{track}&limit=#{args[:limit]}")
+  @spec similar(String.t(), String.t(), [limit: non_neg_integer()]) :: Elixirfm.response
+  def similar(artist, track, args \\ [limit: 20]),
+    do: uri(".getsimilar&artist=#{artist}&track=#{track}", args)
 
   @doc """
   Get the tags applied by an individual user to a track on Last.fm.
   To retrieve the list of top tags applied to a track by all users use .getTopTags.
   """
-  @spec get_tags(String.t(), String.t(), [username: String.t()]) :: Elixirfm.response
-  def get_tags(artist, track, args \\ [username: ""]),
-    do: uri(".getTags&artist=#{artist}&track=#{track}&user=#{args[:username]}")
+  @spec tags(String.t(), String.t(), [username: String.t()]) :: Elixirfm.response
+  def tags(artist, track, args \\ []),
+    do: uri(".getTags&artist=#{artist}&track=#{track}", args)
 
   @doc """
   Get the top tags for this track on Last.fm, ordered by tag count.
   """
-  @spec get_top_tags(String.t(), String.t()) :: Elixirfm.response
-  def get_top_tags(artist, track),
+  @spec top_tags(String.t(), String.t()) :: Elixirfm.response
+  def top_tags(artist, track),
     do: uri(".gettoptags&artist=#{artist}&track=#{track}")
 
   @doc """

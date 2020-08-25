@@ -28,3 +28,4 @@ ttb_last_config
 test/fixtures/*
 
 .formatter.exs
+.iex.exs
