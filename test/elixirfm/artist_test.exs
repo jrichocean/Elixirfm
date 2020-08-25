@@ -3,7 +3,7 @@ defmodule Elixirfm.ArtistTest do
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Artist
 
-  setup_all do
+  setup do
     ExVCR.Config.cassette_library_dir("test/fixtures/vcr_cassettes/artist")
     :ok
   end
@@ -14,39 +14,39 @@ defmodule Elixirfm.ArtistTest do
     end
   end
 
-  # test "get_info/1 returns sucessful response" do
-  #   use_cassette "ok_get_info_artist_response" do
-  #     assert {:ok, %{"artist" => _}} = get_info("Amon Amarth")
+  # test "info/1 returns sucessful response" do
+  #   use_cassette "ok_info_artist_response" do
+  #     assert {:ok, %{"artist" => _}} = info("Amon Amarth")
   #   end
   # end
 
-  test "get_similar/1 returns sucessful response" do
-    use_cassette "ok_get_similar_artist_response" do
-      assert {:ok, %{"similarartists" => _}} = get_similar("Amon Amarth")
+  test "similar/1 returns sucessful response" do
+    use_cassette "ok_similar_artist_response" do
+      assert {:ok, %{"similarartists" => _}} = similar("Amon Amarth")
     end
   end
 
-  test "get_top_album/1 returns sucessful response" do
-    use_cassette "ok_get_top_album_response" do
-      assert {:ok, %{"topalbums" => _}} = get_top_album("Amon Amarth")
+  test "top_album/1 returns sucessful response" do
+    use_cassette "ok_top_album_response" do
+      assert {:ok, %{"topalbums" => _}} = top_album("Amon Amarth")
     end
   end
 
-  test "get_top_tags/1 returns sucessful response" do
-    use_cassette "ok_get_top_tags_response" do
-      assert {:ok, %{"toptags" => _}} = get_top_tags("Amon Amarth")
+  test "top_tags/1 returns sucessful response" do
+    use_cassette "ok_top_tags_response" do
+      assert {:ok, %{"toptags" => _}} = top_tags("Amon Amarth")
     end
   end
 
-  test "get_top_tracks/1 returns sucessful response" do
-    use_cassette "ok_get_top_tracks_artist_response" do
-      assert {:ok, %{"toptracks" => _}} = Elixirfm.Artist.get_top_tracks("Amon Amarth")
+  test "top_tracks/1 returns sucessful response" do
+    use_cassette "ok_top_tracks_artist_response" do
+      assert {:ok, %{"toptracks" => _}} = Elixirfm.Artist.top_tracks("Amon Amarth")
     end
   end
 
-  test "get_correction/1 returns sucessful response" do
-    use_cassette "ok_get_correction_response" do
-      assert {:ok, %{"corrections" => _}} = get_correction("Amon Amarth")
+  test "correction/1 returns sucessful response" do
+    use_cassette "ok_correction_response" do
+      assert {:ok, %{"corrections" => _}} = correction("Amon Amarth")
     end
   end
 

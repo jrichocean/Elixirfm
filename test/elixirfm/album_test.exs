@@ -14,15 +14,15 @@ defmodule Elixirfm.AlbumTest do
     end
   end
 
-  test "get_info/2 returns successful response" do
-    use_cassette "ok_get_info_response" do
-      assert {:ok, %{"album" => _}} = get_info("kvelertak", "Meir")
+  test "info/2 returns successful response" do
+    use_cassette "ok_info_response" do
+      assert {:ok, %{"album" => _}} = info("kvelertak", "Meir")
     end
   end
 
-  test "get_top_tags/2 returns successful response" do
-    use_cassette "ok_get_top_tags_response" do
-      assert {:ok, %{"toptags" => _}} = get_top_tags("kvelertak", "Meir")
+  test "top_tags/2 returns successful response" do
+    use_cassette "ok_top_tags_response" do
+      assert {:ok, %{"toptags" => _}} = top_tags("kvelertak", "Meir")
     end
   end
 end

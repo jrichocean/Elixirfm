@@ -3,10 +3,15 @@ defmodule Elixirfm.AuthTest do
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Auth
 
+  setup do
+    ExVCR.Config.cassette_library_dir("test/fixtures/vcr_cassettes/auth")
+    :ok
+  end
+
   test "api_sig/1 produces md5 hash" do
     import Elixirfm.Auth, only: [_api_sig: 1]
 
-    assert _api_sig("hi!") == <<119, 45, 154, 232, 171, 87, 173, 110, 208, 9, 146, 16, 229, 16, 89, 36>>
+    assert _api_sig("hi!") == <<20, 84, 133, 104, 111, 40, 56, 185, 151, 44, 168, 133, 254, 121, 21, 252>>
   end
 
   test "get_session/1 with invalid args returns :error tuple" do
