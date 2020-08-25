@@ -1,0 +1,32 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://ws.audioscrobbler.com/2.0/"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"toptags\":{\"@attr\":{\"offset\":0,\"num_res\":50,\"total\":2732096},\"tag\":[{\"name\":\"rock\",\"count\":3980741,\"reach\":395651},{\"name\":\"electronic\",\"count\":2372611,\"reach\":254214},{\"name\":\"seen live\",\"count\":2142328,\"reach\":81740},{\"name\":\"alternative\",\"count\":2095863,\"reach\":261926},{\"name\":\"indie\",\"count\":2017906,\"reach\":253625},{\"name\":\"pop\",\"count\":1975312,\"reach\":225919},{\"name\":\"female vocalists\",\"count\":1599679,\"reach\":167860},{\"name\":\"metal\",\"count\":1259775,\"reach\":155658},{\"name\":\"alternative rock\",\"count\":1166890,\"reach\":166891},{\"name\":\"jazz\",\"count\":1151157,\"reach\":146591},{\"name\":\"classic rock\",\"count\":1139363,\"reach\":136643},{\"name\":\"ambient\",\"count\":1054988,\"reach\":144344},{\"name\":\"experimental\",\"count\":1051728,\"reach\":139340},{\"name\":\"folk\",\"count\":917941,\"reach\":147567},{\"name\":\"punk\",\"count\":882756,\"reach\":142067},{\"name\":\"indie rock\",\"count\":875894,\"reach\":133493},{\"name\":\"Hip-Hop\",\"count\":860377,\"reach\":126815},{\"name\":\"hard rock\",\"count\":858517,\"reach\":113931},{\"name\":\"instrumental\",\"count\":840685,\"reach\":123206},{\"name\":\"black metal\",\"count\":836570,\"reach\":61677},{\"name\":\"singer-songwriter\",\"count\":831315,\"reach\":108143},{\"name\":\"dance\",\"count\":798016,\"reach\":132037},{\"name\":\"80s\",\"count\":776245,\"reach\":99922},{\"name\":\"Progressive rock\",\"count\":722837,\"reach\":95309},{\"name\":\"death metal\",\"count\":712949,\"reach\":70991},{\"name\":\"heavy metal\",\"count\":699646,\"reach\":89546},{\"name\":\"hardcore\",\"count\":690247,\"reach\":97010},{\"name\":\"british\",\"count\":684296,\"reach\":92681},{\"name\":\"soul\",\"count\":670113,\"reach\":99939},{\"name\":\"chillout\",\"count\":646934,\"reach\":103085},{\"name\":\"electronica\",\"count\":630350,\"reach\":101436},{\"name\":\"Classical\",\"count\":561381,\"reach\":73649},{\"name\":\"rap\",\"count\":559314,\"reach\":103162},{\"name\":\"industrial\",\"count\":557146,\"reach\":83084},{\"name\":\"Soundtrack\",\"count\":556287,\"reach\":83739},{\"name\":\"punk rock\",\"count\":545916,\"reach\":96959},{\"name\":\"blues\",\"count\":544247,\"reach\":95179},{\"name\":\"thrash metal\",\"count\":491095,\"reach\":61970},{\"name\":\"90s\",\"count\":479400,\"reach\":56518},{\"name\":\"acoustic\",\"count\":474794,\"reach\":109953},{\"name\":\"metalcore\",\"count\":473346,\"reach\":66537},{\"name\":\"psychedelic\",\"count\":470356,\"reach\":77255},{\"name\":\"japanese\",\"count\":457876,\"reach\":48266},{\"name\":\"post-rock\",\"count\":439925,\"reach\":64578},{\"name\":\"Progressive metal\",\"count\":432137,\"reach\":61781},{\"name\":\"german\",\"count\":431514,\"reach\":58969},{\"name\":\"hip hop\",\"count\":424170,\"reach\":76433},{\"name\":\"funk\",\"count\":422207,\"reach\":82101},{\"name\":\"new wave\",\"count\":417329,\"reach\":63510},{\"name\":\"trance\",\"count\":413741,\"reach\":64206}]}}",
+      "headers": {
+        "Server": "openresty/1.9.15.1",
+        "Date": "Tue, 25 Aug 2020 21:49:47 GMT",
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": "2584",
+        "Connection": "keep-alive",
+        "Access-Control-Allow-Headers": "Origin, X-Atmosphere-tracking-id, X-Atmosphere-Framework, X-Cache-Date, Content-Type, X-Atmosphere-Transport, *",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Request-Headers": "Origin, X-Atmosphere-tracking-id, X-Atmosphere-Framework, X-Cache-Date, Content-Type, X-Atmosphere-Transport, *",
+        "TSVC-Time-Spent": "0.000"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

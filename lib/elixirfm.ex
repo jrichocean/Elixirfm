@@ -10,6 +10,18 @@ defmodule Elixirfm do
 
   @api_root "http://ws.audioscrobbler.com/2.0/"
 
+  @doc "get_request/1 takes name of endpoint as string"
+  def get_request(endpoint) do
+    HTTPoison.request(:get, request_url(endpoint, nil), [], create_headers())
+    |> handle_response()
+  end
+
+  @doc "get_request/2 takes name of endpoint as string and args"
+  def get_request(endpoint, args) do
+    HTTPoison.request(:get, request_url(endpoint, args), [], create_headers())
+    |> handle_response()
+  end
+
   @doc false
   def _base_url(), do: Application.get_env(:elixirfm, :lastfm_ws) || @api_root
 
@@ -25,20 +37,16 @@ defmodule Elixirfm do
     || raise MissingSecretKeyError
   end
 
-  @doc "get_request/1 takes name of endpoint as string"
-  def get_request(endpoint) do
-    HTTPoison.request(:get, request_url(endpoint, nil), [], create_headers())
-    |> handle_response()
-  end
-
-  @doc "get_request/2 takes name of endpoint as string and args"
-  def get_request(endpoint, args) do
-    HTTPoison.request(:get, request_url(endpoint, args), [], create_headers())
-    |> handle_response()
-  end
-
   defp request_url(endpoint, args) do
-    Enum.join([_base_url(), "?method=", endpoint, encode_params(args), "&api_key=", _lastfm_key(), "&format=json"])
+    Enum.join([
+      _base_url(),
+      "?method=",
+      endpoint,
+      encode_params(args),
+      "&api_key=",
+      _lastfm_key(),
+      "&format=json"
+    ])
   end
 
   defp create_headers(),

@@ -1,0 +1,30 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://ws.audioscrobbler.com/2.0/"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"tracks\":{\"track\":[{\"name\":\"Creep\",\"duration\":\"239\",\"listeners\":\"1752055\",\"mbid\":\"d11fcceb-dfc5-4d19-b45d-f4e8f6d3eaa6\",\"url\":\"https://www.last.fm/music/Radiohead/_/Creep\",\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Radiohead\",\"mbid\":\"a74b1b7f-71a5-4011-9441-d0b5e4122711\",\"url\":\"https://www.last.fm/music/Radiohead\"},\"image\":[{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png\",\"size\":\"small\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png\",\"size\":\"medium\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png\",\"size\":\"large\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png\",\"size\":\"extralarge\"}],\"@attr\":{\"rank\":\"0\"}}],\"@attr\":{\"country\":\"Spain\",\"page\":\"1\",\"perPage\":\"1\",\"totalPages\":\"7368125\",\"total\":\"7368125\"}}}",
+      "headers": {
+        "Server": "openresty/1.9.15.1",
+        "Date": "Tue, 25 Aug 2020 21:50:01 GMT",
+        "Content-Type": "application/json",
+        "Connection": "keep-alive",
+        "content-length": "899",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Max-Age": "86400"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

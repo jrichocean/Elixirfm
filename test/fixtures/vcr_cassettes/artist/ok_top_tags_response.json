@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://ws.audioscrobbler.com/2.0/"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"toptags\":{\"tag\":[{\"count\":100,\"name\":\"Melodic Death Metal\",\"url\":\"https://www.last.fm/tag/Melodic+Death+Metal\"},{\"count\":72,\"name\":\"viking metal\",\"url\":\"https://www.last.fm/tag/viking+metal\"},{\"count\":63,\"name\":\"death metal\",\"url\":\"https://www.last.fm/tag/death+metal\"},{\"count\":28,\"name\":\"seen live\",\"url\":\"https://www.last.fm/tag/seen+live\"},{\"count\":25,\"name\":\"swedish\",\"url\":\"https://www.last.fm/tag/swedish\"},{\"count\":24,\"name\":\"metal\",\"url\":\"https://www.last.fm/tag/metal\"},{\"count\":6,\"name\":\"Swedish Metal\",\"url\":\"https://www.last.fm/tag/Swedish+Metal\"},{\"count\":5,\"name\":\"Viking Death Metal\",\"url\":\"https://www.last.fm/tag/Viking+Death+Metal\"},{\"count\":3,\"name\":\"black metal\",\"url\":\"https://www.last.fm/tag/black+metal\"},{\"count\":3,\"name\":\"folk metal\",\"url\":\"https://www.last.fm/tag/folk+metal\"},{\"count\":3,\"name\":\"Sweden\",\"url\":\"https://www.last.fm/tag/Sweden\"},{\"count\":2,\"name\":\"pagan metal\",\"url\":\"https://www.last.fm/tag/pagan+metal\"},{\"count\":2,\"name\":\"Viking\",\"url\":\"https://www.last.fm/tag/Viking\"},{\"count\":2,\"name\":\"heavy metal\",\"url\":\"https://www.last.fm/tag/heavy+metal\"},{\"count\":2,\"name\":\"amon amarth\",\"url\":\"https://www.last.fm/tag/amon+amarth\"},{\"count\":2,\"name\":\"Swedish Death Metal\",\"url\":\"https://www.last.fm/tag/Swedish+Death+Metal\"},{\"count\":2,\"name\":\"melodic metal\",\"url\":\"https://www.last.fm/tag/melodic+metal\"},{\"count\":1,\"name\":\"epic metal\",\"url\":\"https://www.last.fm/tag/epic+metal\"},{\"count\":1,\"name\":\"scandinavian metal\",\"url\":\"https://www.last.fm/tag/scandinavian+metal\"}],\"@attr\":{\"artist\":\"Amon Amarth\"}}}",
+      "headers": {
+        "Server": "openresty/1.9.15.1",
+        "Date": "Tue, 25 Aug 2020 21:49:55 GMT",
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": "1546",
+        "Connection": "keep-alive",
+        "Access-Control-Request-Headers": "Origin, X-Atmosphere-tracking-id, X-Atmosphere-Framework, X-Cache-Date, Content-Type, X-Atmosphere-Transport, *",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Max-Age": "86400"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

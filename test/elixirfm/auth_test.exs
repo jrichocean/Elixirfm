@@ -1,10 +1,12 @@
 defmodule Elixirfm.AuthTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Auth
 
   setup do
     ExVCR.Config.cassette_library_dir("test/fixtures/vcr_cassettes/auth")
+    ExVCR.Config.filter_request_headers("Authorization")
+    ExVCR.Config.filter_url_params(true)
     :ok
   end
 

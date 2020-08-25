@@ -1,0 +1,30 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://ws.audioscrobbler.com/2.0/"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"album\":{\"name\":\"Meir\",\"artist\":\"Kvelertak\",\"mbid\":\"86c734e2-9494-4cfa-b457-e580f4f58631\",\"url\":\"https://www.last.fm/music/Kvelertak/Meir\",\"image\":[{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/34s/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"small\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/64s/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"medium\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/174s/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"large\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/300x300/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"extralarge\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/300x300/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"mega\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/300x300/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"\"}],\"listeners\":\"78426\",\"playcount\":\"2200953\",\"tracks\":{\"track\":[{\"name\":\"Åpenbaring\",\"url\":\"https://www.last.fm/music/Kvelertak/_/%C3%85penbaring\",\"duration\":\"186\",\"@attr\":{\"rank\":\"1\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Spring fra livet\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Spring+fra+livet\",\"duration\":\"215\",\"@attr\":{\"rank\":\"2\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Trepan\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Trepan\",\"duration\":\"220\",\"@attr\":{\"rank\":\"3\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Bruane brenn\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Bruane+brenn\",\"duration\":\"247\",\"@attr\":{\"rank\":\"4\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Evig vandrar\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Evig+vandrar\",\"duration\":\"169\",\"@attr\":{\"rank\":\"5\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Snilepisk\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Snilepisk\",\"duration\":\"173\",\"@attr\":{\"rank\":\"6\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Månelyst\",\"url\":\"https://www.last.fm/music/Kvelertak/_/M%C3%A5nelyst\",\"duration\":\"190\",\"@attr\":{\"rank\":\"7\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Nekrokosmos\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Nekrokosmos\",\"duration\":\"400\",\"@attr\":{\"rank\":\"8\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Undertro\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Undertro\",\"duration\":\"385\",\"@attr\":{\"rank\":\"9\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Tordenbrak\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Tordenbrak\",\"duration\":\"534\",\"@attr\":{\"rank\":\"10\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},{\"name\":\"Kvelertak\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Kvelertak\",\"duration\":\"229\",\"@attr\":{\"rank\":\"11\"},\"streamable\":{\"#text\":\"0\",\"fulltrack\":\"0\"},\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}}]},\"tags\":{\"tag\":[{\"name\":\"2013\",\"url\":\"https://www.last.fm/tag/2013\"},{\"name\":\"hardcore\",\"url\":\"https://www.last.fm/tag/hardcore\"},{\"name\":\"black metal\",\"url\":\"https://www.last.fm/tag/black+metal\"},{\"name\":\"Black n Roll\",\"url\":\"https://www.last.fm/tag/Black+n+Roll\"},{\"name\":\"metal\",\"url\":\"https://www.last.fm/tag/metal\"}]}}}",
+      "headers": {
+        "Server": "openresty/1.9.15.1",
+        "Date": "Tue, 25 Aug 2020 21:49:42 GMT",
+        "Content-Type": "application/json",
+        "Connection": "keep-alive",
+        "content-length": "4281",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Max-Age": "86400"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

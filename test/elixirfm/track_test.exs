@@ -1,10 +1,12 @@
 defmodule Elixirfm.TrackTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Elixirfm.Track
 
   setup do
     ExVCR.Config.cassette_library_dir("test/fixtures/vcr_cassettes/track")
+    ExVCR.Config.filter_request_headers("Authorization")
+    ExVCR.Config.filter_url_params(true)
     :ok
   end
 

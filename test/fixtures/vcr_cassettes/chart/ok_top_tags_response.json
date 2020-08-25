@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://ws.audioscrobbler.com/2.0/"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"tags\":{\"tag\":[{\"name\":\"rock\",\"url\":\"https://www.last.fm/tag/rock\",\"reach\":\"395651\",\"taggings\":\"3980741\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"electronic\",\"url\":\"https://www.last.fm/tag/electronic\",\"reach\":\"254214\",\"taggings\":\"2372611\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"seen live\",\"url\":\"https://www.last.fm/tag/seen+live\",\"reach\":\"81740\",\"taggings\":\"2142328\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"alternative\",\"url\":\"https://www.last.fm/tag/alternative\",\"reach\":\"261926\",\"taggings\":\"2095863\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"indie\",\"url\":\"https://www.last.fm/tag/indie\",\"reach\":\"253625\",\"taggings\":\"2017906\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"pop\",\"url\":\"https://www.last.fm/tag/pop\",\"reach\":\"225919\",\"taggings\":\"1975312\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"female vocalists\",\"url\":\"https://www.last.fm/tag/female+vocalists\",\"reach\":\"167860\",\"taggings\":\"1599679\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"metal\",\"url\":\"https://www.last.fm/tag/metal\",\"reach\":\"155658\",\"taggings\":\"1259775\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"alternative rock\",\"url\":\"https://www.last.fm/tag/alternative+rock\",\"reach\":\"166891\",\"taggings\":\"1166890\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"jazz\",\"url\":\"https://www.last.fm/tag/jazz\",\"reach\":\"146591\",\"taggings\":\"1151157\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"classic rock\",\"url\":\"https://www.last.fm/tag/classic+rock\",\"reach\":\"136643\",\"taggings\":\"1139363\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"ambient\",\"url\":\"https://www.last.fm/tag/ambient\",\"reach\":\"144344\",\"taggings\":\"1054988\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"experimental\",\"url\":\"https://www.last.fm/tag/experimental\",\"reach\":\"139340\",\"taggings\":\"1051728\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"folk\",\"url\":\"https://www.last.fm/tag/folk\",\"reach\":\"147567\",\"taggings\":\"917941\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"punk\",\"url\":\"https://www.last.fm/tag/punk\",\"reach\":\"142067\",\"taggings\":\"882756\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"indie rock\",\"url\":\"https://www.last.fm/tag/indie+rock\",\"reach\":\"133493\",\"taggings\":\"875894\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"Hip-Hop\",\"url\":\"https://www.last.fm/tag/Hip-Hop\",\"reach\":\"126815\",\"taggings\":\"860377\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"hard rock\",\"url\":\"https://www.last.fm/tag/hard+rock\",\"reach\":\"113931\",\"taggings\":\"858517\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"instrumental\",\"url\":\"https://www.last.fm/tag/instrumental\",\"reach\":\"123206\",\"taggings\":\"840685\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"black metal\",\"url\":\"https://www.last.fm/tag/black+metal\",\"reach\":\"61677\",\"taggings\":\"836570\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"singer-songwriter\",\"url\":\"https://www.last.fm/tag/singer-songwriter\",\"reach\":\"108143\",\"taggings\":\"831315\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"dance\",\"url\":\"https://www.last.fm/tag/dance\",\"reach\":\"132037\",\"taggings\":\"798016\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"80s\",\"url\":\"https://www.last.fm/tag/80s\",\"reach\":\"99922\",\"taggings\":\"776245\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"Progressive rock\",\"url\":\"https://www.last.fm/tag/Progressive+rock\",\"reach\":\"95309\",\"taggings\":\"722837\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"death metal\",\"url\":\"https://www.last.fm/tag/death+metal\",\"reach\":\"70991\",\"taggings\":\"712949\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"heavy metal\",\"url\":\"https://www.last.fm/tag/heavy+metal\",\"reach\":\"89546\",\"taggings\":\"699646\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"hardcore\",\"url\":\"https://www.last.fm/tag/hardcore\",\"reach\":\"97010\",\"taggings\":\"690247\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"british\",\"url\":\"https://www.last.fm/tag/british\",\"reach\":\"92681\",\"taggings\":\"684296\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"soul\",\"url\":\"https://www.last.fm/tag/soul\",\"reach\":\"99939\",\"taggings\":\"670113\",\"streamable\":\"1\",\"wiki\":{}},{\"name\":\"chillout\",\"url\":\"https://www.last.fm/tag/chillout\",\"reach\":\"103085\",\"taggings\":\"646934\",\"streamable\":\"1\",\"wiki\":{}}],\"@attr\":{\"page\":\"1\",\"perPage\":\"30\",\"totalPages\":\"91070\",\"total\":\"2732096\"}}}",
+      "headers": {
+        "Server": "openresty/1.9.15.1",
+        "Date": "Tue, 25 Aug 2020 21:49:52 GMT",
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": "3889",
+        "Connection": "keep-alive",
+        "Access-Control-Request-Headers": "Origin, X-Atmosphere-tracking-id, X-Atmosphere-Framework, X-Cache-Date, Content-Type, X-Atmosphere-Transport, *",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Max-Age": "86400"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

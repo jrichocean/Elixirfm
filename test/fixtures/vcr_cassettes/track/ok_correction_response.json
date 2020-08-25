@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://ws.audioscrobbler.com/2.0/"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"corrections\":{\"correction\":{\"track\":{\"name\":\"Meir\",\"url\":\"https://www.last.fm/music/Kvelertak/_/Meir\",\"artist\":{\"name\":\"Kvelertak\",\"mbid\":\"61fdc79c-df1a-4999-8d2f-668f18c11283\",\"url\":\"https://www.last.fm/music/Kvelertak\"}},\"@attr\":{\"index\":\"0\",\"artistcorrected\":\"0\",\"trackcorrected\":\"0\"}}}}",
+      "headers": {
+        "Server": "openresty/1.9.15.1",
+        "Date": "Tue, 25 Aug 2020 21:50:00 GMT",
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": "292",
+        "Connection": "keep-alive",
+        "Access-Control-Request-Headers": "Origin, X-Atmosphere-tracking-id, X-Atmosphere-Framework, X-Cache-Date, Content-Type, X-Atmosphere-Transport, *",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Max-Age": "86400"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

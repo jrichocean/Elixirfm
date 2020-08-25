@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://ws.audioscrobbler.com/2.0/"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"results\":{\"opensearch:Query\":{\"#text\":\"\",\"role\":\"request\",\"searchTerms\":\"Meir\",\"startPage\":\"1\"},\"opensearch:totalResults\":\"9129\",\"opensearch:startIndex\":\"0\",\"opensearch:itemsPerPage\":\"5\",\"albummatches\":{\"album\":[{\"name\":\"Meir\",\"artist\":\"Kvelertak\",\"url\":\"https://www.last.fm/music/Kvelertak/Meir\",\"image\":[{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/34s/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"small\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/64s/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"medium\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/174s/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"large\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/300x300/db9daf733be8e73bf39f558de56c2ff4.png\",\"size\":\"extralarge\"}],\"streamable\":\"0\",\"mbid\":\"86c734e2-9494-4cfa-b457-e580f4f58631\"},{\"name\":\"Meridional\",\"artist\":\"Norma Jean\",\"url\":\"https://www.last.fm/music/Norma+Jean/Meridional\",\"image\":[{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/34s/ce2fa51845b8407d91d9b57f1f48395f.png\",\"size\":\"small\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/64s/ce2fa51845b8407d91d9b57f1f48395f.png\",\"size\":\"medium\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/174s/ce2fa51845b8407d91d9b57f1f48395f.png\",\"size\":\"large\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/300x300/ce2fa51845b8407d91d9b57f1f48395f.png\",\"size\":\"extralarge\"}],\"streamable\":\"0\",\"mbid\":\"1632644d-0c16-466e-9913-b12f0c808bff\"},{\"name\":\"The Lost Meridian\",\"artist\":\"My Autumn\",\"url\":\"https://www.last.fm/music/My+Autumn/The+Lost+Meridian\",\"image\":[{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/34s/7b485c25b8854f17cf99def2f6507d7f.png\",\"size\":\"small\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/64s/7b485c25b8854f17cf99def2f6507d7f.png\",\"size\":\"medium\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/174s/7b485c25b8854f17cf99def2f6507d7f.png\",\"size\":\"large\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/300x300/7b485c25b8854f17cf99def2f6507d7f.png\",\"size\":\"extralarge\"}],\"streamable\":\"0\",\"mbid\":\"9cfd5e84-0c92-4e4c-8ece-2f710366a9db\"},{\"name\":\"La Polinesia Meridional\",\"artist\":\"La casa azul\",\"url\":\"https://www.last.fm/music/La+casa+azul/La+Polinesia+Meridional\",\"image\":[{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/34s/e04d824b2d764487ac2f23cf55523d55.png\",\"size\":\"small\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/64s/e04d824b2d764487ac2f23cf55523d55.png\",\"size\":\"medium\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/174s/e04d824b2d764487ac2f23cf55523d55.png\",\"size\":\"large\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/300x300/e04d824b2d764487ac2f23cf55523d55.png\",\"size\":\"extralarge\"}],\"streamable\":\"0\",\"mbid\":\"04bde0b8-7dc9-43fd-9359-a36e5d3454c0\"},{\"name\":\"Meridian\",\"artist\":\"Sinking Ships\",\"url\":\"https://www.last.fm/music/Sinking+Ships/Meridian\",\"image\":[{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/34s/871fe61d87e3472ea8f69f12362097e2.png\",\"size\":\"small\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/64s/871fe61d87e3472ea8f69f12362097e2.png\",\"size\":\"medium\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/174s/871fe61d87e3472ea8f69f12362097e2.png\",\"size\":\"large\"},{\"#text\":\"https://lastfm.freetls.fastly.net/i/u/300x300/871fe61d87e3472ea8f69f12362097e2.png\",\"size\":\"extralarge\"}],\"streamable\":\"0\",\"mbid\":\"13d2cfdf-0527-4ba6-a48b-26508e521a28\"}]},\"@attr\":{\"for\":\"Meir\"}}}",
+      "headers": {
+        "Server": "openresty/1.9.15.1",
+        "Date": "Tue, 25 Aug 2020 21:49:43 GMT",
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": "3310",
+        "Connection": "keep-alive",
+        "Access-Control-Request-Headers": "Origin, X-Atmosphere-tracking-id, X-Atmosphere-Framework, X-Cache-Date, Content-Type, X-Atmosphere-Transport, *",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Max-Age": "86400"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

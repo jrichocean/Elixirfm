@@ -24,8 +24,5 @@ config/
 
 ttb_last_config
 
-# ignore fixtures
-test/fixtures/*
-
 .formatter.exs
 .iex.exs

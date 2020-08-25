@@ -4,8 +4,8 @@ defmodule Elixirfm.Mixfile do
   def project do
     [
       app: :elixirfm,
-      version: "0.1.5",
-      elixir: "~> 1.5",
+      version: "1.0.0",
+      elixir: "~> 1.10",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       deps: deps(),
@@ -24,7 +24,7 @@ defmodule Elixirfm.Mixfile do
   def package do
     [
       name: :elixirfm,
-      maintainers: ["Joshua Richardson"],
+      maintainers: ["jrichocean"],
       licenses: ["MIT"],
       docs: [extras: ["README.md"]],
       links: %{"GitHub" => "https://github.com/jrichocean/Elixirfm"}
