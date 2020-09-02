@@ -1,24 +1,28 @@
 defmodule Elixirfm do
   @moduledoc "A simple wrapper for the Lastfm API."
-  @type response :: {atom(), struct()}
-
+  @moduledoc since: "1.0.0"
+  
   alias Elixirfm.{
     RequestError,
     MissingApiKeyError,
     MissingSecretKeyError
   }
+  
+  @type response :: {atom(), struct()}
 
   @api_root "http://ws.audioscrobbler.com/2.0/"
 
-  @doc "get_request/1 takes name of endpoint as string"
-  def get_request(endpoint) do
-    HTTPoison.request(:get, request_url(endpoint, nil), [], create_headers())
+  @doc "get_request/1 takes name of uri as string and returns a `t:response/0`, if wanting to pass url params see `get_request/2` "
+  @spec get_request(lastfm_uri::String.t) :: response
+  def get_request(uri) do
+    HTTPoison.request(:get, collate_url(uri, []), [], create_headers())
     |> handle_response()
   end
 
-  @doc "get_request/2 takes name of endpoint as string and args"
-  def get_request(endpoint, args) do
-    HTTPoison.request(:get, request_url(endpoint, args), [], create_headers())
+  @doc "get_request/2 takes name of the lastfm uri `\"/artist\"` as string and a map or list of tuples for url params and returns a `t:response/0`."
+  @spec get_request(lastfm_uri::String.t, params_and_opts::map()|[{any(), any()}, ...]|[]) :: response
+  def get_request(uri, args) do
+    HTTPoison.request(:get, collate_url(uri, args), [], create_headers())
     |> handle_response()
   end
 
@@ -37,12 +41,19 @@ defmodule Elixirfm do
     || raise MissingSecretKeyError
   end
 
-  defp request_url(endpoint, args) do
+  @doc false
+  def _encode_params([]), do: ""
+  def _encode_params(nil), do: ""
+  def _encode_params({_k, 0}), do: ""
+  def _encode_params({k, v}), do: "&#{k}=#{v}"
+  def _encode_params(args), do: for {k, v} <- args, do: _encode_params({k, v})
+
+  defp collate_url(uri, args) do
     Enum.join([
       _base_url(),
       "?method=",
-      endpoint,
-      encode_params(args),
+      uri,
+      _encode_params(args),
       "&api_key=",
       _lastfm_key(),
       "&format=json"
@@ -61,8 +72,4 @@ defmodule Elixirfm do
     {:error, error_struct}
   end
 
-  defp encode_params(nil), do: ""
-  defp encode_params({_k, 0}), do: ""
-  defp encode_params({k, v}), do: "&#{k}=#{v}"
-  defp encode_params(args), do: for {k, v} <- args, do: encode_params({k, v})
 end

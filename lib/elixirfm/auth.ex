@@ -7,7 +7,7 @@ defmodule Elixirfm.Auth do
   
   defp api_secret(), do: Elixirfm._lastfm_secret()
 
-  defp uri(url), do: HTTPoison.get(@endpoint <> url)
+  defp req(uri), do: HTTPoison.get(@endpoint <> uri)
 
   @doc """
   request_user_auth/0 checks if the user is logged in to Last.fm, if not they will be redirected
@@ -22,7 +22,7 @@ defmodule Elixirfm.Auth do
   forward to an alternate callback url of your site after the authorization process.
   """
   def request_user_auth(optional_callback_url) do
-    uri("?api_key=#{api_key()}&cb=#{optional_callback_url}")
+    req("?api_key=#{api_key()}&cb=#{optional_callback_url}")
   end
 
   @doc """
@@ -31,7 +31,7 @@ defmodule Elixirfm.Auth do
   token as a string. This is the third step in the Last.fm authentication process.
   """
   def get_session(callback_token) when is_binary(callback_token) do
-    uri("auth.getSession&token=" <> _api_sig(callback_token))
+    req("auth.getSession&token=" <> _api_sig(callback_token))
   end
   def get_session(fun) when is_function(fun) do
     case String.valid?(fun.()) do
